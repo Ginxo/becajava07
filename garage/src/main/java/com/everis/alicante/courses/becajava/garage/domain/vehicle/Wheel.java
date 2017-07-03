@@ -5,7 +5,7 @@ import com.everis.alicante.courses.becajava.garage.domain.vehicle.enumerator.Whe
 /**
  * Created by emingora on 29/06/2017.
  */
-public class Wheel {
+public class Wheel implements VehiclePiece {
     WheelKindEnum wheelKind;
     int height;
     int width;
