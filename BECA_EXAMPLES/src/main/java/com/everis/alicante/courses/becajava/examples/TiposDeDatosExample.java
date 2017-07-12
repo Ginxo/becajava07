@@ -1,3 +1,4 @@
+package com.everis.alicante.courses.becajava.examples;
 import com.everis.alicante.courses.becajava.garage.domain.client.Client;
 
 public class TiposDeDatosExample {
