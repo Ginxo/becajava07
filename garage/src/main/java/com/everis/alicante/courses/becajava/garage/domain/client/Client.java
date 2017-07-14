@@ -4,6 +4,7 @@ package com.everis.alicante.courses.becajava.garage.domain.client;
  * Created by emingora on 29/06/2017.
  */
 public class Client {
+	
     private String dni;
     private String name;
     private String surname;

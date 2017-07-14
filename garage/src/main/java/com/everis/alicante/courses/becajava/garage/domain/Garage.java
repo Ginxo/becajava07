@@ -17,4 +17,37 @@ public class Garage {
     public Garage() {
 
     }
+
+
+	public int getCarParkingPlacesMaxNumber() {
+		return carParkingPlacesMaxNumber;
+	}
+
+
+	public void setCarParkingPlacesMaxNumber(int carParkingPlacesMaxNumber) {
+		this.carParkingPlacesMaxNumber = carParkingPlacesMaxNumber;
+	}
+
+
+	public int getMotorcycleParkingPlacesMaxNumber() {
+		return motorcycleParkingPlacesMaxNumber;
+	}
+
+
+	public void setMotorcycleParkingPlacesMaxNumber(int motorcycleParkingPlacesMaxNumber) {
+		this.motorcycleParkingPlacesMaxNumber = motorcycleParkingPlacesMaxNumber;
+	}
+
+
+	public int getBicycleParkingPlacesMaxNumber() {
+		return bicycleParkingPlacesMaxNumber;
+	}
+
+
+	public void setBicycleParkingPlacesMaxNumber(int bicycleParkingPlacesMaxNumber) {
+		this.bicycleParkingPlacesMaxNumber = bicycleParkingPlacesMaxNumber;
+	}
+    
+    
+    
 }
