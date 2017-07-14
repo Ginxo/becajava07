@@ -13,7 +13,7 @@ public class GarageMain {
      * @param args the input arguments
      */
     public static void main(String... args) throws Exception {
-        GarageMenu.getInstance().start();
+        System.out.println(GarageMenu.getInstance().play());
     }
 
 

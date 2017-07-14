@@ -19,36 +19,39 @@ public class GarageMenu {
     private GarageMenu() {
     }
 
-    public void start() {
-        int mainOption = GarageMenu.getInstance().getMainOption();
-        if (mainOption != 0) {
-            int submenuOption = GarageMenu.getInstance().getSubmenuOption(mainOption);
-            if (submenuOption == 0) {
-                this.start();
+    public String play() {
+        final StringBuilder option = new StringBuilder(GarageMenu.getInstance().getMainOption());
+        if (!"0".equals(option.toString())) {
+            final String submenuOption = GarageMenu.getInstance().getSubmenuOption(option.toString());
+            if ("0".equals(submenuOption)) {
+                this.play();
+            } else{
+                return option.append(".").append(submenuOption).toString();
             }
         }
+        return option.toString();
     }
 
-    private int getMainOption() {
+    private String getMainOption() {
         GarageMenu.getInstance().printMainMenu();
         Scanner in = new Scanner(System.in);
-        int i = in.nextInt();
-        if (i < 0 || i > 3) {
+        Integer mainOption = in.nextInt();
+        if (mainOption < 0 || mainOption > 3) {
             this.printError();
             return this.getMainOption();
         }
-        return i;
+        return mainOption.toString();
     }
 
-    private int getSubmenuOption(int option) {
-        GarageMenu.getInstance().printSubMenu(option);
+    private String getSubmenuOption(final String mainOption) {
+        GarageMenu.getInstance().buildSubMenu(mainOption);
         Scanner in = new Scanner(System.in);
-        int i = in.nextInt();
-        if (i < 0 || i > 3) {
+        Integer subMenuOption = in.nextInt();
+        if (subMenuOption < 0 || subMenuOption > 4) {
             this.printError();
-            return this.getSubmenuOption(option);
+            return this.getSubmenuOption(mainOption);
         }
-        return i;
+        return subMenuOption.toString();
     }
 
     private void printMainMenu() {
@@ -57,9 +60,9 @@ public class GarageMenu {
         stringBuilder.append(separator).append("\n");
         stringBuilder.append("MAIN MENU").append("\n");
         stringBuilder.append(separator).append("\n");
-        stringBuilder.append("1. Clients").append("\n");
-        stringBuilder.append("2. Vehicles").append("\n");
-        stringBuilder.append("3. Booking").append("\n");
+        stringBuilder.append("1. Cars").append("\n");
+        stringBuilder.append("2. Motor Bikes").append("\n");
+        stringBuilder.append("3. Bicycles").append("\n");
         stringBuilder.append("0. Exit").append("\n");
         stringBuilder.append(separator).append("\n");
         stringBuilder.append(insertTheOptionYouWant).append("\n");
@@ -70,15 +73,15 @@ public class GarageMenu {
         System.out.println("ERROR!!");
     }
 
-    private void printSubMenu(int option) {
-        switch (option) {
-            case 1:
+    private void buildSubMenu(final String subMenu) {
+        switch (subMenu) {
+            case "1":
                 printClientMenu();
                 break;
-            case 2:
+            case "2":
                 printVehicleMenu();
                 break;
-            case 3:
+            case "3":
                 printBookingMenu();
                 break;
             default:
@@ -88,15 +91,15 @@ public class GarageMenu {
     }
 
     private void printClientMenu() {
-        this.printSubMenu("CLIENT");
+        this.printSubMenu("CARS");
     }
 
     private void printVehicleMenu() {
-        this.printSubMenu("VEHICLE");
+        this.printSubMenu("MOTOR BIKES");
     }
 
     private void printBookingMenu() {
-        this.printSubMenu("BOOKING");
+        this.printSubMenu("BiCYCLES");
     }
 
     private void clearScreen() {
@@ -116,6 +119,7 @@ public class GarageMenu {
         stringBuilder.append("1. List").append("\n");
         stringBuilder.append("2. New").append("\n");
         stringBuilder.append("3. Delete").append("\n");
+        stringBuilder.append("4. Get").append("\n");
         stringBuilder.append("0. Out").append("\n");
         stringBuilder.append(separator).append("\n");
         stringBuilder.append(insertTheOptionYouWant).append("\n");
