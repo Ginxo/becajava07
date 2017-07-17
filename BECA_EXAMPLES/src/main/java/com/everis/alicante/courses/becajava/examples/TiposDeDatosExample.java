@@ -5,10 +5,10 @@ public class TiposDeDatosExample {
 
 	final static String SEPARADOR="**********************************************************************************************";
 	
+	static double variableNueva=55;
 	
 	public static void main(String[] args) {
-			
-		
+				
 		
 		//tipos de datos
 		
@@ -22,7 +22,8 @@ public class TiposDeDatosExample {
 		
 		System.out.println(f);
 		System.out.println(g);
-
+		
+		
 		System.out.println(SEPARADOR);
 		
 		//operadores Relacionales y condicionales
@@ -36,6 +37,13 @@ public class TiposDeDatosExample {
 		
 		System.out.println(SEPARADOR);
 		
+		String str= new String("test");
+		String str2="hola";
+		
+		String str3=str+str2;
+		str3=str.concat(str2).concat("test");
+		
+		System.out.println(str3);
 		//Paso por referencia
 				  
 		//utilizar el debug
@@ -86,6 +94,24 @@ public class TiposDeDatosExample {
 		 
 		 System.out.println(cliente1);
 		 
+		 String cadena="hola mundo";
+		 cadena.substring(0,6);
+		 
+		 
+		 //Strings
+		 
+		 String cadena1="hola";
+		 
+		 String cadena2="hola";
+		  
+		 
+		 boolean sonIguales=cadena1==cadena2;
+		 
+		 sonIguales=cadena1.equals(cadena2);
+		 
+		 System.out.println("son iguales "+sonIguales);
+		 
+		 
 		//ARRAYS
 		
 		int[] arrayEnteros= new int[10];
@@ -118,6 +144,21 @@ public class TiposDeDatosExample {
 		for (int j = 0; j < clientes.length; j++) {
 			System.out.println(clientes[j].getName());
 		}
+		
+		
+		
+		//autoboxing
+		
+		int entero1=12;
+		
+		Integer entero2= new Integer(12);
+		
+		String cadena4="123";
+		
+		int cadena5=Integer.parseInt(cadena4);
+		
+		
+		Integer entero3= 5;
 		
 		
 		

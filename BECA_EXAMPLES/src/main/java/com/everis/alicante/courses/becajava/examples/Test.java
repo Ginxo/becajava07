@@ -31,9 +31,13 @@ public class Test {
 				
 		coche.lavar();
 		
+		coche.getPrecio();
+		
 		Vehiculo vehiculo= new Vehiculo();
 		
+		((Coche)(vehiculo)).getPrecio();
 		
+		((Aparcable)(vehiculo)).aparcar();
 		
 	}
 
