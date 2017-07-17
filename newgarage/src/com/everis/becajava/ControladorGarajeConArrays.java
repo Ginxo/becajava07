@@ -20,8 +20,8 @@ public class ControladorGarajeConArrays implements ControladorGaraje {
 				plazaslibres.add(plaza);
 			}
 		}
-		for (Plaza plaza : plazas) {
-			
+		for (Plaza plaza:plazasLibres) {
+			System.out.println(plaza);
 		}
 		
 	}

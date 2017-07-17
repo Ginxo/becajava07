@@ -9,15 +9,7 @@ public class GarajeMain {
 	static ControladorGaraje controlador;
 	
 	public static void main(String[] args) {
-	//iniciarlizar los componentes de la  aplicacion
-	
-		//5 clientes
-	
-		//5 vehiculos
-	
-		//30 plazas de garaje
-	
-		//1 garaje
+
 	inicializarComponentes();
 	
 	iniciarAplicacion();
