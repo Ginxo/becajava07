@@ -1,6 +1,7 @@
 package com.everis.becajava;
 
 public class Garaje {
+	
 	private Plaza[] plazas;
 
 	public Plaza[] getPlazas() {
@@ -10,4 +11,6 @@ public class Garaje {
 	public void setPlazas(Plaza[] plazas) {
 		this.plazas = plazas;
 	}
+	
+	
 }

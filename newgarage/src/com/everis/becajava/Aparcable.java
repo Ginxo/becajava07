@@ -1,5 +1,7 @@
 package com.everis.becajava;
 
-public class Aparcable {
+public interface Aparcable {
 
+	void aparcar();
+	
 }
