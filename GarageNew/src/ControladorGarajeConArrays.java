@@ -17,16 +17,12 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 			
 			if(plaza.getLibre()){
 				plazaslibres.add(plaza);				
-			}		
-			
-		}
-		
+			}					
+		}		
 	
 		//listar por pantalla
-		for (Plaza plaza : plazaslibres) {
-			
-			System.out.println(plaza);
-			
+		for (Plaza plaza : plazaslibres) {			
+			System.out.println(plaza);			
 		}
 		
 	}
@@ -34,6 +30,22 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 	@Override
 	public void listarPlazasOcupadas() {
 		
+		List<Plaza> plazaslibres= new ArrayList<Plaza>();
+		
+		Plaza[] plazas=GarageMain.getGaraje().getPlazas();
+		
+		for (int i = 0; i < plazas.length; i++) {
+			Plaza plaza = plazas[i];
+			
+			if(!plaza.getLibre()){
+				plazaslibres.add(plaza);				
+			}					
+		}		
+	
+		//listar por pantalla
+		for (Plaza plaza : plazaslibres) {			
+			System.out.println(plaza);			
+		}
 		
 	}
 

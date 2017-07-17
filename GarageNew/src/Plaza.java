@@ -52,6 +52,9 @@ public class Plaza {
 	public String toString() {
 		return "Plaza [cliente=" + cliente + ", precio=" + precio + ", numeroPlaza=" + numeroPlaza + "]";
 	}
+
+
+	
 	
 	
 	
