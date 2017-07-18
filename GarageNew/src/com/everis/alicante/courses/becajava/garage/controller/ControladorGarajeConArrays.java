@@ -1,6 +1,18 @@
+package com.everis.alicante.courses.becajava.garage.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.everis.alicante.courses.becajava.garage.GarageMain;
+import com.everis.alicante.courses.becajava.garage.domain.Camion;
+import com.everis.alicante.courses.becajava.garage.domain.Cliente;
+import com.everis.alicante.courses.becajava.garage.domain.Coche;
+import com.everis.alicante.courses.becajava.garage.domain.Garaje;
+import com.everis.alicante.courses.becajava.garage.domain.Motocicleta;
+import com.everis.alicante.courses.becajava.garage.domain.Plaza;
+import com.everis.alicante.courses.becajava.garage.domain.Vehiculo;
+import com.everis.alicante.courses.becajava.garage.interfaces.Aparcable;
+import com.everis.alicante.courses.becajava.garage.interfaces.ControladorGaraje;
 
 public class ControladorGarajeConArrays implements ControladorGaraje{
 

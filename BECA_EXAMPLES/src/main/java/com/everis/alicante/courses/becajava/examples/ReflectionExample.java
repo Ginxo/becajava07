@@ -9,7 +9,7 @@ public class ReflectionExample {
 		
 		Example objectoDeMiClase= new Example();
 		
-		Class<? extends Example> objetoDeClassConInfoDeMiClase = objectoDeMiClase.getClass();
+		Class<? extends Example> objetoDeClassConInfoDeMiClase = objectoDeMiClase.getClass();		
 		
 		System.out.println(objetoDeClassConInfoDeMiClase);
 		
@@ -27,8 +27,9 @@ public class ReflectionExample {
 		//Para tipos primitivos tenemos que usar “.class” 
 	
 		//También podemos obtener una clase desde un nombre completamente cualificado (fully-quailified name); esto es, el nombre del paquete donde está nuestra clase, seguido del nombre de la clase
-		Class c = Class.forName("Example");
-
+//		Class c = Class.forName("com.everis.alicante.courses.becajava.examples.Example");
+		
+		
 //		System.out.println(c);
 		
 		//Obtener el nombre de la clase

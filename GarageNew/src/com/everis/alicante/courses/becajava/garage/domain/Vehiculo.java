@@ -1,3 +1,4 @@
+package com.everis.alicante.courses.becajava.garage.domain;
 
 public class Vehiculo {
 	
