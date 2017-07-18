@@ -3,6 +3,7 @@ package com.everis.alicante.courses.becajava.garaje.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Iterator;
 
 import com.everis.alicante.courses.becajava.garaje.GarajeMain;
 import com.everis.alicante.courses.becajava.garaje.domain.Camion;
@@ -13,6 +14,7 @@ import com.everis.alicante.courses.becajava.garaje.domain.Motocicleta;
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.domain.Vehiculo;
 import com.everis.alicante.courses.becajava.interfaces.Aparcable;
+import com.everis.alicante.courses.becajava.interfaces.ControladorGaraje;
 
 public class ControladorGarajeConArrays implements ControladorGaraje {
 
@@ -21,17 +23,12 @@ public class ControladorGarajeConArrays implements ControladorGaraje {
 		
 		List<Plaza> plazaslibres = new ArrayList<Plaza>();
 		
-		Plaza[] plazas=	GarajeMain.getGaraje().getPlazas();
+		List<Plaza> plazas = GarajeMain.getGaraje().getPlazas();
 		
-		for (int i = 0; i < plazas.length; i++) {
-			Plaza plaza = plazas[i];
-			
-			if (plaza.getLibre()) {
+		for (Plaza plaza : plazas) {
+			if(plaza.getLibre()) {
 				plazaslibres.add(plaza);
 			}
-		}
-		for (Plaza plaza:plazaslibres) {
-			System.out.println(plaza);
 		}
 		
 	}
@@ -40,12 +37,11 @@ public class ControladorGarajeConArrays implements ControladorGaraje {
 	public void listarPlazasOcupadas() {
 		List<Plaza> plazaslibres = new ArrayList<Plaza>();
 		
-		Plaza[] plazas=	GarajeMain.getGaraje().getPlazas();
+		List<Plaza> plazas=	GarajeMain.getGaraje().getPlazas();
 		
-		for (int i = 0; i < plazas.length; i++) {
-			Plaza plaza = plazas[i];
+		for (Plaza plaza : plazas) {
 			
-			if (!plaza.getLibre()) {
+			if (plaza.getLibre()) {
 				plazaslibres.add(plaza);
 			}
 		}
@@ -104,12 +100,10 @@ public class ControladorGarajeConArrays implements ControladorGaraje {
 		boolean hayplaza=false;
 		Garaje garaje = GarajeMain.getGaraje();
 		
-		Plaza[] plazas=garaje.getPlazas();
+		List<Plaza> plazas = garaje.getPlazas();
 		
-		for (int i = 0; i < plazas.length; i++) {
-			
-			Plaza plaza = plazas[i];
-			
+		for (Plaza plaza: plazas) {
+						
 			if (plaza.getLibre() && vehiculo instanceof Aparcable) {		
 				plaza.setCliente(cliente);
 				hayplaza = true;

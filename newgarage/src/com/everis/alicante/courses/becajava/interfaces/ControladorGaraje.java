@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.garaje.controller;
+package com.everis.alicante.courses.becajava.interfaces;
 
 public interface ControladorGaraje {
 
