@@ -4,6 +4,9 @@ public class Coche extends Vehiculo implements Aparcable {
 
 	private double precio;
 	
+	@AnotacionMarcaCoche(marca="Ferrari")
+	public String marca;
+	
 	@Override
 	public void aparcar() {
 		
