@@ -1,10 +1,14 @@
 package com.everis.alicante.courses.becajava.garage;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 import com.everis.alicante.courses.becajava.garage.controller.ControladorGarajeConArrays;
 import com.everis.alicante.courses.becajava.garage.domain.Garaje;
 import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 import com.everis.alicante.courses.becajava.garage.interfaces.ControladorGaraje;
+import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
+import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAOFileImp;
 
 public class GarageMain {
 
@@ -13,7 +17,7 @@ public class GarageMain {
 		static ControladorGaraje controlador;
 		
 		
-		public static void main(String[] args) {	
+		public static void main(String[] args) throws IOException {	
 		
 		
 			inicializarComponentes();
@@ -63,36 +67,17 @@ public class GarageMain {
 		
 	}
 
-	public static void inicializarComponentes(){
+	public static void inicializarComponentes() throws IOException{
 		
-	    garaje= new Garaje();
-		
-		Plaza[] plazas= new Plaza[30];		
-		
-		for (int i =0 ; i < plazas.length; i++) {
-			
-			Plaza plazaTemp= new Plaza();
-			plazaTemp.setNumeroPlaza(i+1);
-			
-			if (i<10) {
-				
-				plazaTemp.setPrecio(50);
-				
-			} else if (i<20){
-				
-				plazaTemp.setPrecio(75);
-				
-			}else{
-				
-				plazaTemp.setPrecio(100);
-			}
-			
-			plazas[i]=plazaTemp;
-			
-		}
-		
+		 garaje= new Garaje();		
+		  
+		PlazaDAO plazaDao= new PlazaDAOFileImp();			  
+	    
+//		Plaza[] plazas= plazaDao.readPlazas(),;		
 
-		garaje.setPlazas(plazas);
+		List<Plaza> plazasTemp= plazaDao.readPlazas();
+		
+		garaje.setPlazas(plazasTemp);
 		
 		controlador= new ControladorGarajeConArrays();
 		

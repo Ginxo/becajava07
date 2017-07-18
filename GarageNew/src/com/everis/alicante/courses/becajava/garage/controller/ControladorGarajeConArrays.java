@@ -1,5 +1,6 @@
 package com.everis.alicante.courses.becajava.garage.controller;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,42 +22,44 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 		
 		List<Plaza> plazaslibres= new ArrayList<Plaza>();
 		
-		Plaza[] plazas=GarageMain.getGaraje().getPlazas();
+		List<Plaza> plazas=GarageMain.getGaraje().getPlazas();
 		
-		for (int i = 0; i < plazas.length; i++) {
-			Plaza plaza = plazas[i];
+		for (Plaza plaza : plazas) {
 			
 			if(plaza.getLibre()){
-				plazaslibres.add(plaza);				
-			}					
-		}		
-	
-		//listar por pantalla
-		for (Plaza plaza : plazaslibres) {			
-			System.out.println(plaza);			
+				plazaslibres.add(plaza);			
+			}		
+		
 		}
 		
-	}
+		//listar por pantalla
+		for (Plaza plaza1 : plazaslibres) {			
+				System.out.println(plaza1);			
+			}
+		
+		}
+
 
 	@Override
 	public void listarPlazasOcupadas() {
 		
 		List<Plaza> plazasOcupadas= new ArrayList<Plaza>();
 		
-		Plaza[] plazas=GarageMain.getGaraje().getPlazas();
+		List<Plaza> plazas=GarageMain.getGaraje().getPlazas();
 		
-		for (int i = 0; i < plazas.length; i++) {
-			Plaza plaza = plazas[i];
+		for (Plaza plaza : plazas) {
 			
 			if(!plaza.getLibre()){
-				plazasOcupadas.add(plaza);				
-			}					
-		}		
-	
-		//listar por pantalla
-		for (Plaza plaza : plazasOcupadas) {			
-			System.out.println(plaza);			
+				plazasOcupadas.add(plaza);	
+			}		
+		
 		}
+		
+		//listar por pantalla
+		for (Plaza plaza1 : plazasOcupadas) {			
+				System.out.println(plaza1);			
+			}
+		
 		
 	}
 
@@ -111,19 +114,17 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 		
 		boolean hayplaza=false;
 		Garaje garaje=GarageMain.getGaraje();		
-		Plaza[] plazas=garaje.getPlazas();
+		List<Plaza> plazas=garaje.getPlazas();
 		
-		for (int i = 0; i < plazas.length; i++) {
-			
-			Plaza plaza = plazas[i];
+		for (Plaza plaza : plazas) {
 			
 			if (plaza.getLibre()&&vehiculo instanceof Aparcable) {				
 				plaza.setCliente(cliente);				
 				hayplaza=true;
 				return hayplaza;
-			}				
+			}		
 		}
-		
+				
 		return hayplaza;
 		
 	}
