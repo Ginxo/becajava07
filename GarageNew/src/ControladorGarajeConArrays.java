@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,7 +29,7 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 	@Override
 	public void listarPlazasOcupadas() {
 		
-		List<Plaza> plazaslibres= new ArrayList<Plaza>();
+		List<Plaza> plazasOcupadas= new ArrayList<Plaza>();
 		
 		Plaza[] plazas=GarageMain.getGaraje().getPlazas();
 		
@@ -38,12 +37,12 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 			Plaza plaza = plazas[i];
 			
 			if(!plaza.getLibre()){
-				plazaslibres.add(plaza);				
+				plazasOcupadas.add(plaza);				
 			}					
 		}		
 	
 		//listar por pantalla
-		for (Plaza plaza : plazaslibres) {			
+		for (Plaza plaza : plazasOcupadas) {			
 			System.out.println(plaza);			
 		}
 		
