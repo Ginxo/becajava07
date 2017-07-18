@@ -1,5 +1,5 @@
 
-public class Coche extends Vehiculo implements Aparcable{
+public class Coche extends Vehiculo implements Aparcable,Lavable{
 	
 	private String marca;
 
@@ -18,6 +18,13 @@ public class Coche extends Vehiculo implements Aparcable{
 	public void aparcar() {
 	 System.out.println("puedo aparcar");
 		
+	}
+
+
+	@Override
+	public void testear() {
+		// TODO Auto-generated method stub
+		Aparcable.super.testear();
 	}
 	
 	
