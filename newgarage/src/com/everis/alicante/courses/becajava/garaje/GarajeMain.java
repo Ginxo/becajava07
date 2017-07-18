@@ -1,6 +1,11 @@
-package com.everis.becajava;
+package com.everis.alicante.courses.becajava.garaje;
 
 import java.util.Scanner;
+
+import com.everis.alicante.courses.becajava.garaje.controller.ControladorGaraje;
+import com.everis.alicante.courses.becajava.garaje.controller.ControladorGarajeConArrays;
+import com.everis.alicante.courses.becajava.garaje.domain.Garaje;
+import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 
 public class GarajeMain {
 	
@@ -20,7 +25,7 @@ public class GarajeMain {
 		System.out.println("Bienvenido a nuestro garaje, seleccione una opcion");
 		System.out.println("1:Listar Plazas Garaje Libre");
 		System.out.println("2:Listar Plazas Garaje Ocupadas");
-		System.out.println("3:Calcular Ingresos Mensuales");
+		System.out.println("3:Reservar plazas");
 
 		
 		Scanner in = new Scanner(System.in);	
@@ -65,7 +70,7 @@ public static void inicializarComponentes() {
 	
 	Plaza[] plazas = new Plaza[30];
 	
-	for (int i = 1; i < plazas.length; i++) {
+	for (int i = 0; i < plazas.length; i++) {
 		
 		Plaza plazaTemp = new Plaza();
 		plazaTemp.setNumeroPlaza(i+1);
@@ -99,7 +104,7 @@ public static Garaje getGaraje() {
 }
 
 
-public void setGaraje(Garaje garaje) {
-	this.garaje = garaje;
+public static void setGaraje(Garaje garaje) {
+ GarajeMain.garaje = garaje;
 }
 }

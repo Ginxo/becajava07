@@ -1,4 +1,4 @@
-package com.everis.becajava;
+package com.everis.alicante.courses.becajava.garaje.domain;
 
 public class Plaza {
 	
@@ -17,6 +17,12 @@ public class Plaza {
 		}else {
 			return false;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Plaza [cliente=" + cliente + ", precio=" + precio + ", numeroPlaza=" + numeroPlaza + ", libre=" + libre
+				+ "]";
 	}
 
 	public int getNumeroPlaza() {

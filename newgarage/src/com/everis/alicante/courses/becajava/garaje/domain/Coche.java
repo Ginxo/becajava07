@@ -1,4 +1,4 @@
-package com.everis.becajava;
+package com.everis.alicante.courses.becajava.garaje.domain;
 
 public class Coche extends Vehiculo {
 	private String marca;

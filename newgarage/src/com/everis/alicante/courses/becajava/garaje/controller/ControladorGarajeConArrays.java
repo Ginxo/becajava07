@@ -1,15 +1,25 @@
-package com.everis.becajava;
+package com.everis.alicante.courses.becajava.garaje.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.everis.alicante.courses.becajava.garaje.GarajeMain;
+import com.everis.alicante.courses.becajava.garaje.domain.Camion;
+import com.everis.alicante.courses.becajava.garaje.domain.Cliente;
+import com.everis.alicante.courses.becajava.garaje.domain.Coche;
+import com.everis.alicante.courses.becajava.garaje.domain.Garaje;
+import com.everis.alicante.courses.becajava.garaje.domain.Motocicleta;
+import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
+import com.everis.alicante.courses.becajava.garaje.domain.Vehiculo;
+import com.everis.alicante.courses.becajava.interfaces.Aparcable;
 
 public class ControladorGarajeConArrays implements ControladorGaraje {
 
 	@Override
 	public void listarPlazasLibres() {
 		
-		List plazaslibres= new ArrayList();
+		List<Plaza> plazaslibres = new ArrayList<Plaza>();
 		
 		Plaza[] plazas=	GarajeMain.getGaraje().getPlazas();
 		
@@ -20,7 +30,7 @@ public class ControladorGarajeConArrays implements ControladorGaraje {
 				plazaslibres.add(plaza);
 			}
 		}
-		for (Plaza plaza:plazasLibres) {
+		for (Plaza plaza:plazaslibres) {
 			System.out.println(plaza);
 		}
 		
@@ -28,8 +38,23 @@ public class ControladorGarajeConArrays implements ControladorGaraje {
 
 	@Override
 	public void listarPlazasOcupadas() {
+		List<Plaza> plazaslibres = new ArrayList<Plaza>();
+		
+		Plaza[] plazas=	GarajeMain.getGaraje().getPlazas();
+		
+		for (int i = 0; i < plazas.length; i++) {
+			Plaza plaza = plazas[i];
+			
+			if (!plaza.getLibre()) {
+				plazaslibres.add(plaza);
+			}
+		}
+		for (Plaza plaza:plazaslibres) {
+			System.out.println(plaza);
+		}
 		
 	}
+	
 
 	@Override
 	public boolean reservarPlaza() {
