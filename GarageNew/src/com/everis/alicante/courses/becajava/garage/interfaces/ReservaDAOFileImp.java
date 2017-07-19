@@ -38,7 +38,7 @@ public class ReservaDAOFileImp implements ReservaDAO {
 	@Override
 	public List<Reserva> readReservas() throws IOException {
 						
-		 List<Reserva> plazas= new ArrayList<Reserva>();		 
+		 List<Reserva> reservas= new ArrayList<Reserva>();		 
 		
 		 String linea;
 		 
@@ -60,7 +60,7 @@ public class ReservaDAOFileImp implements ReservaDAO {
 				
 				reserva.setPlaza(plaza);							
 										
-				plazas.add(reserva);	
+				reservas.add(reserva);	
 			
 			}
 			
@@ -68,7 +68,7 @@ public class ReservaDAOFileImp implements ReservaDAO {
 			 
 		 reader.close();		
 		 	  	
-		return  plazas;
+		return  reservas;
 	}
 
 
