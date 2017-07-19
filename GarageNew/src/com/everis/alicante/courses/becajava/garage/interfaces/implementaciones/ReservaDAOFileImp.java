@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.garage.interfaces;
+package com.everis.alicante.courses.becajava.garage.interfaces.implementaciones;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,17 +9,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.everis.alicante.courses.becajava.garage.GarageMain;
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
 import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 import com.everis.alicante.courses.becajava.garage.domain.Reserva;
 import com.everis.alicante.courses.becajava.garage.domain.Vehiculo;
+import com.everis.alicante.courses.becajava.garage.interfaces.ReservaDAO;
 
 public class ReservaDAOFileImp implements ReservaDAO {
 
 	@Override
-	public void saveReserva(Reserva reserva) throws IOException {
+	public void createReserva(Reserva reserva) throws IOException {
 		
 		 
 		 File file= new File("src/resources/Reservas.txt");
@@ -35,10 +38,11 @@ public class ReservaDAOFileImp implements ReservaDAO {
 
 	}
 	
+	
 	@Override
-	public List<Reserva> readReservas() throws IOException {
+	public Map<String,Reserva> readReservas() throws IOException {
 						
-		 List<Reserva> reservas= new ArrayList<Reserva>();		 
+		 Map<String,Reserva> reservas= new TreeMap<String,Reserva>();		 
 		
 		 String linea;
 		 
@@ -58,9 +62,11 @@ public class ReservaDAOFileImp implements ReservaDAO {
 				
 				Plaza plaza=GarageMain.getGaraje().getPlazas().get(Integer.parseInt(temp[1]));
 				
-				reserva.setPlaza(plaza);							
+				reserva.setPlaza(plaza);	
+				
+				reserva.setCliente(GarageMain.getGaraje().getClientes().get(temp[2]));
 										
-				reservas.add(reserva);	
+				reservas.put(reserva.getCodigoReserva(),reserva);	
 			
 			}
 			
@@ -92,7 +98,7 @@ public class ReservaDAOFileImp implements ReservaDAO {
 		
 		ReservaDAO dao= new ReservaDAOFileImp();
 		
-		dao.saveReserva(reserva);
+		dao.createReserva(reserva);
 		
 		
 		
