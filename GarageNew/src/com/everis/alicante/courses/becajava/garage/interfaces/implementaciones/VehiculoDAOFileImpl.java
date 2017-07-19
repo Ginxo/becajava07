@@ -10,7 +10,7 @@ import java.util.TreeMap;
 import com.everis.alicante.courses.becajava.garage.domain.Vehiculo;
 import com.everis.alicante.courses.becajava.garage.interfaces.VehiculoDAO;
 
-public class VehiculoDAOImpl implements VehiculoDAO {
+public class VehiculoDAOFileImpl implements VehiculoDAO {
 
 	@Override
 	public Map<String,Vehiculo> readVehiculos() throws IOException {
@@ -19,7 +19,7 @@ public class VehiculoDAOImpl implements VehiculoDAO {
 		
 		 String linea;
 		 
-		 File file= new File("src/resources/Vehiculo.txt");
+		 File file= new File("src/resources/Vehiculos.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 

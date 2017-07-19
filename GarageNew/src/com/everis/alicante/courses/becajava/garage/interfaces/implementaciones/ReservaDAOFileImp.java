@@ -65,7 +65,9 @@ public class ReservaDAOFileImp implements ReservaDAO {
 				reserva.setPlaza(plaza);	
 				
 				reserva.setCliente(GarageMain.getGaraje().getClientes().get(temp[2]));
-										
+								
+				reserva.getCliente().setVehiculo(GarageMain.getGaraje().getVehiculos().get(temp[3]));
+				
 				reservas.put(reserva.getCodigoReserva(),reserva);	
 			
 			}

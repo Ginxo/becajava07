@@ -177,4 +177,25 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 	}
 
+
+	@Override
+	public void listarReservas() throws IOException {
+	
+		
+		ReservaDAO reservaDao= new ReservaDAOFileImp();
+		
+		Map<String, Reserva> reservas = reservaDao.readReservas();
+		
+		 Collection<Reserva> listaReservas = reservas.values();
+		 
+		 for (Reserva reserva : listaReservas) {
+			 
+			 System.out.println("numero de plaza reservada: " +reserva.getPlaza().getNumeroPlaza());
+			 System.out.println("cliente: " +reserva.getCliente().getNombreCompleto());
+			 System.out.println("vehiculo: " +reserva.getCliente().getVehiculo().getMatricula() +" - " + reserva.getCliente().getVehiculo().getTipoVehiculo());
+			
+		}
+		
+	}
+
 }
