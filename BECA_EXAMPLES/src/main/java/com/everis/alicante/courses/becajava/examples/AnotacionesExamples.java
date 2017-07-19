@@ -7,7 +7,7 @@ public class AnotacionesExamples {
 	public static void main(String[] args) throws NoSuchFieldException, SecurityException {
 		
 		
-		ClaseConAnotacion ejemplo= new ClaseConAnotacion();		
+		 ClaseConAnotacion ejemplo= new ClaseConAnotacion();		
 		
 		 Field[] campos= ejemplo.getClass().getDeclaredFields();
 		 for(Field campo: campos) {
