@@ -5,7 +5,6 @@ import java.util.Scanner;
 import com.everis.alicante.courses.becajava.garage.controller.ControladorGaraje;
 import com.everis.alicante.courses.becajava.garage.controller.ControladorGarajeImpl;
 import com.everis.alicante.courses.becajava.garage.domain.Garaje;
-import com.everis.alicante.courses.becajava.garage.domain.Vehiculo;
 import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.ReservaDAO;
@@ -33,6 +32,7 @@ public class GarageMain {
 
 	}
 	
+	@SuppressWarnings("resource")
 	private static void iniciarAplicacion() throws IOException {
 		
 		System.out.println("*******************************************************");	
