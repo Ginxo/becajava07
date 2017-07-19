@@ -9,7 +9,9 @@ import com.everis.alicante.courses.becajava.garaje.domain.Garaje;
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.interfaces.ControladorGaraje;
 import com.everis.alicante.courses.becajava.garaje.interfaces.PlazaDAO;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ReservaDAO;
 import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.PlazaDAOFileImp;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ReservaDAOFileImp;
 
 public class GarajeMain {
 
@@ -72,8 +74,11 @@ public class GarajeMain {
 		
 		 garaje= new Garaje();		
 		  
-		PlazaDAO plazaDao= new PlazaDAOFileImp();			  
+		PlazaDAO plazaDao = new PlazaDAOFileImp();
+		ReservaDAO reservaDAO = new ReservaDAOFileImp();
 	    
+		garaje.setPlazas(plazaDAO.readPlazas());
+		
 //		Plaza[] plazas= plazaDao.readPlazas(),;		
 
 		List<Plaza> plazasTemp= plazaDao.readPlazas();
