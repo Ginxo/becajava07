@@ -8,41 +8,53 @@ public class Plaza {
 	
 	private int numeroPlaza;
 	
-	private Boolean libre;
-	
-	
-	public Boolean getLibre() {
-		if (cliente == null) {
-			return true;
-		}else {
-			return false;
-		}
+		
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	@Override
-	public String toString() {
-		return "Plaza [cliente=" + cliente + ", precio=" + precio + ", numeroPlaza=" + numeroPlaza + ", libre=" + libre
-				+ "]";
+	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
+
+	
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
 
 	public int getNumeroPlaza() {
 		return numeroPlaza;
 	}
+
+
 	public void setNumeroPlaza(int numeroPlaza) {
 		this.numeroPlaza = numeroPlaza;
 	}
-	public Cliente getCliente() {
-		return cliente;
+
+
+	public Boolean getLibre() {
+		
+		if (cliente==null) {
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+
+
+	@Override
+	public String toString() {
+		return "Plaza [cliente=" + cliente + ", precio=" + precio + ", numeroPlaza=" + numeroPlaza + "]";
 	}
-	public double getPrecio() {
-		return precio;
-	}
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
+
+
+	
 	
 }
-

@@ -12,46 +12,53 @@ import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 public class PlazaDAOFileImp implements PlazaDAO {
 
 	@Override
-	public List readPlazas() throws IOException {
-		// TODO Auto-generated method stub
+	public List<Plaza> readPlazas() throws IOException {
 		
-		List plazas = new ArrayList<Plaza>();
-		String linea;
-		
-		File file = new File("src/resources/Plazas.txt");
-		FileReader reader = new FileReader(file);
-		BufferedReader buffer = new BufferedReader(reader);
-		
-		while((linea=buffer.readLine())!=null){
+				
+		 List<Plaza> plazas= new ArrayList<Plaza>();
+		 String linea;
+		 
+		 File file= new File("src/resources/Plazas.txt");
+		 FileReader reader= new FileReader(file);
+		 BufferedReader  buffer= new BufferedReader(reader);
+		 		 
+		 while((linea=buffer.readLine())!=null){				  
 			
 			if(!linea.contains("NUMERO_PLAZA")||linea.isEmpty()){
-			
-				Plaza plazaTemp = new Plaza();
 				
-				String[] temp = linea.split(";");
+				Plaza plazaTemp= new Plaza();	
 				
-			plazaTemp.setNumeroPlaza(Integer.parseInt(temp[0]));
+				String[] temp= linea.split(";");
+				
+				plazaTemp.setNumeroPlaza(Integer.parseInt(temp[0]));
+				
+				plazaTemp.setPrecio(Double.parseDouble(temp[1]));
+										
+				plazas.add(plazaTemp);	
 			
-			plazaTemp.setPrecio(Double.parseDouble(temp[1]));
+			}
 			
-			plazas.add(plazaTemp);
-		}
-		}
-		
-		reader.close();
-		
-		return plazas;
+		 }
+			 
+		 reader.close();		
+		 	  	
+		return  plazas;
 	}
 
 	@Override
 	public void write(Plaza[] plazas) {
-
+		
+		
 	}
 	
-
-
-	public static void main(String args[]) throws IOException {
-		PlazaDAO dao = new PlazaDAOFileImp();
+	public static void main(String args[]) throws IOException{
+		
+		PlazaDAO dao= new PlazaDAOFileImp();
+		
 		dao.readPlazas();
+		
 	}
+
+
+	
 }
