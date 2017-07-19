@@ -1,7 +1,10 @@
 package com.everis.alicante.courses.becajava.interfaces;
 
-public interface ReservaDAO implements {
-	void saveReserva(Reserva reserva) {
-		
-	}
+import java.io.IOException;
+import com.everis.alicante.courses.becajava.garaje.domain.Reserva;
+
+public interface ReservaDAO {
+	
+	void saveReserva(Reserva reserva) throws IOException;
+	
 }
