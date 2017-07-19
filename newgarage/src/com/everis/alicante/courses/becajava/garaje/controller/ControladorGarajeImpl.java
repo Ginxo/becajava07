@@ -174,5 +174,13 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 //		System.out.println(cliente);
 		
 	}
+	
+	public void listarReservas() throws IOException {
+		
+		ReservaDAO reservaDAO = new ReservaDAOFileImp();
+		Map<String,Reserva> reservas;
+		
+		
+	}
 
 }
