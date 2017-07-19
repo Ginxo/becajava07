@@ -154,7 +154,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 				
 		Collection<Cliente> collection = clientes.values();
 		
-		for (Iterator iterator = collection.iterator(); iterator.hasNext();) {
+		for (Iterator<Cliente> iterator = collection.iterator(); iterator.hasNext();) {
 			Cliente cliente = (Cliente) iterator.next();
 			
 			System.out.println(cliente.getNombreCompleto());
