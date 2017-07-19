@@ -5,7 +5,7 @@ public class Vehiculo {
 	private String matricula;
 
 	private String tipoVehiculo;
-
+	
 	public String getMatricula() {
 		return matricula;
 	}
@@ -24,6 +24,7 @@ public class Vehiculo {
 	public void setTipoVehiculo(String tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 	}
+	
 	
 	
 

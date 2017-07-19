@@ -5,13 +5,16 @@ import java.util.Map;
 
 public class Garaje {
 	
+	//modelo de datos
 	private List<Plaza> plazas;
 	
+	
+	//informacion auxiliar util
 	private Map<String,Reserva> reservas;
 	
-	private Map<String,Cliente> clientes;
-	
 	private Map<String,Vehiculo> vehiculos;
+	
+	private Map<String,Cliente> clientes;
 
 	public List<Plaza> getPlazas() {
 		return plazas;
@@ -21,31 +24,29 @@ public class Garaje {
 		this.plazas = plazas;
 	}
 
-
-	public Map<String,Vehiculo> getVehiculos() {
-		return vehiculos;
-	}
-
-	public void setVehiculos(Map<String,Vehiculo> vehiculos) {
-		this.vehiculos = vehiculos;
-	}
-
-	public Map<String,Reserva> getReservas() {
+	public Map<String, Reserva> getReservas() {
 		return reservas;
 	}
 
-	public void setReservas(Map<String,Reserva> reservas) {
+	public void setReservas(Map<String, Reserva> reservas) {
 		this.reservas = reservas;
 	}
 
-	public Map<String,Cliente> getClientes() {
+	public Map<String, Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+
+	public void setVehiculos(Map<String, Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
+	}
+
+	public Map<String, Cliente> getClientes() {
 		return clientes;
 	}
 
-	public void setClientes(Map<String,Cliente> clientes) {
+	public void setClientes(Map<String, Cliente> clientes) {
 		this.clientes = clientes;
 	}
 
-
-		
+	
 }

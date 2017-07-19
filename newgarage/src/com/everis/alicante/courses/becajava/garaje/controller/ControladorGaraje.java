@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.garaje.interfaces;
+package com.everis.alicante.courses.becajava.garaje.controller;
 
 import java.io.IOException;
 

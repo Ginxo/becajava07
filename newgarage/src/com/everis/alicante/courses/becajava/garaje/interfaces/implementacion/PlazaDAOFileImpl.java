@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.garaje.interfaces;
+package com.everis.alicante.courses.becajava.garaje.interfaces.implementacion;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,13 +10,13 @@ import java.util.List;
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.interfaces.PlazaDAO;
 
-public class PlazaDAOFileImp implements PlazaDAO {
+public class PlazaDAOFileImpl implements PlazaDAO {
 
 	@Override
 	public List<Plaza> readPlazas() throws IOException {
+						
+		 List<Plaza> plazas= new ArrayList<Plaza>();		 
 		
-				
-		 List<Plaza> plazas= new ArrayList<Plaza>();
 		 String linea;
 		 
 		 File file= new File("src/resources/Plazas.txt");
@@ -46,22 +46,17 @@ public class PlazaDAOFileImp implements PlazaDAO {
 		return  plazas;
 	}
 
-	public void write(Plaza[] plazas) {
+	@Override
+	public void createPlaza(Plaza[] plazas) {
 		
 		
 	}
 	
 	public static void main(String args[]) throws IOException{
 		
-		PlazaDAO dao= new PlazaDAOFileImp();
+		PlazaDAO dao= new PlazaDAOFileImpl();
 		
 		dao.readPlazas();
-		
-	}
-
-	@Override
-	public void createPlaza(Plaza[] plazas) {
-		// TODO Auto-generated method stub
 		
 	}
 

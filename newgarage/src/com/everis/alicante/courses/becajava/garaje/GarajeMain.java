@@ -1,23 +1,22 @@
 package com.everis.alicante.courses.becajava.garaje;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
-import com.everis.alicante.courses.becajava.garaje.controller.ControladorGarajeConArrays;
+import com.everis.alicante.courses.becajava.garaje.controller.ControladorGarajeImpl;
 import com.everis.alicante.courses.becajava.garaje.domain.Garaje;
-import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
-import com.everis.alicante.courses.becajava.garaje.interfaces.ControladorGaraje;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ClienteDAO;
 import com.everis.alicante.courses.becajava.garaje.interfaces.PlazaDAO;
 import com.everis.alicante.courses.becajava.garaje.interfaces.ReservaDAO;
-import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.PlazaDAOFileImp;
-import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ReservaDAOFileImp;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ClienteDAOFileImpl;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.PlazaDAOFileImpl;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ReservaDAOFileImpl;
 
 public class GarajeMain {
 
 		static Garaje garaje;
 		
-		static ControladorGaraje controlador;
+		static ControladorGarajeImpl controlador;
 		
 		
 		public static void main(String[] args) throws IOException {	
@@ -33,10 +32,16 @@ public class GarajeMain {
 	
 	private static void iniciarAplicacion() throws IOException {
 		
+		System.out.println("*******************************************************");
+		System.out.println("*******************************************************");
+		System.out.println("*******************************************************");
+		System.out.println("*******************************************************");
+		
 		System.out.println("Bienvenido a nuestro garaje, seleccione una opcion: ");
 		System.out.println("1:Listar Plazas Garaje Libre ");
 		System.out.println("2:Listar Plazas Garaje Ocupadas ");
 		System.out.println("3:Reservar Plazas");
+		System.out.println("4:Listar Clientes");
 		
 		Scanner in = new Scanner(System.in);
 		Integer opcion = in.nextInt();
@@ -53,6 +58,9 @@ public class GarajeMain {
 				break;
 			case 3:			
 				resultado=controlador.reservarPlaza();			
+				break;
+			case 4:			
+				controlador.listarClientes();		
 				break;
 			default:
 				System.out.println("Error");
@@ -72,22 +80,19 @@ public class GarajeMain {
 
 	public static void inicializarComponentes() throws IOException{
 		
-		 garaje= new Garaje();		
+		garaje= new Garaje();		
 		  
-		PlazaDAO plazaDao = new PlazaDAOFileImp();
-		ReservaDAO reservaDAO = new ReservaDAOFileImp();
-	    
-		garaje.setPlazas(plazaDAO.readPlazas());
+		PlazaDAO plazaDao= new PlazaDAOFileImpl();	
+		ReservaDAO reservaDao= new ReservaDAOFileImpl();
+		ClienteDAO clienteDao= new ClienteDAOFileImpl();
 		
-//		Plaza[] plazas= plazaDao.readPlazas(),;		
-
-		List<Plaza> plazasTemp= plazaDao.readPlazas();
+		garaje.setPlazas(plazaDao.readPlazas());
 		
-		garaje.setPlazas(plazasTemp);
+//		garaje.setReservas(reservaDao.readReservas());
 		
-		controlador= new ControladorGarajeConArrays();
+		garaje.setClientes(clienteDao.readClientes());
 		
-		//controlador= new ControladorGarajeConColecciones();
+		controlador= new ControladorGarajeImpl();
 		
 	}
 

@@ -3,7 +3,10 @@ package com.everis.alicante.courses.becajava.garaje.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.everis.alicante.courses.becajava.garaje.GarajeMain;
@@ -16,11 +19,10 @@ import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.domain.Reserva;
 import com.everis.alicante.courses.becajava.garaje.domain.Vehiculo;
 import com.everis.alicante.courses.becajava.garaje.interfaces.Aparcable;
-import com.everis.alicante.courses.becajava.garaje.interfaces.ControladorGaraje;
 import com.everis.alicante.courses.becajava.garaje.interfaces.ReservaDAO;
-import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ReservaDAOFileImp;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ReservaDAOFileImpl;
 
-public class ControladorGarajeConArrays implements ControladorGaraje{
+public class ControladorGarajeImpl implements ControladorGaraje{
 
 	public void listarPlazasLibres() {
 		
@@ -72,12 +74,13 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 		
 		Cliente cliente= new Cliente();
 		
-		ReservaDAO dao= new ReservaDAOFileImp();
+		ReservaDAO dao= new ReservaDAOFileImpl();
 		
 		//vamos a escribir por pantalla un menu para meter los datos del cliente
 		
 		System.out.println("Inserte el nombre completo del Cliente");
 		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);		
 		cliente.setNombreCompleto(in.nextLine());
 		
@@ -130,14 +133,45 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 				reserva.setCliente(cliente);
 				reserva.setPlaza(plaza);
 				reserva.setFechaReserva(Calendar.getInstance().getTime());
+				reserva.setCodigoReserva("AUN NO PODEMOS");
 				
-				dao.saveReserva(reserva);				
+				dao.createReserva(reserva);				
 				
 				return hayplaza;
 			}		
 		}
 				
 		return hayplaza;
+		
+	}
+
+
+	public void listarClientes() {
+		
+		Map<String, Cliente> clientes = GarajeMain.getGaraje().getClientes();
+				
+		Collection<Cliente> collection = clientes.values();
+		
+		for (Iterator iterator = collection.iterator(); iterator.hasNext();) {
+			Cliente cliente = (Cliente) iterator.next();
+			
+			System.out.println(cliente.getNombreCompleto());
+			
+		}
+		
+//		System.out.println(clientes.keySet());
+		
+//		System.out.println("--------------------------------");
+		
+//		System.out.println(clientes.values());
+		
+//		System.out.println("--------------------------------");
+		
+//		clientes.values().contains("PEPE");
+//		
+//		Cliente cliente = clientes.get("45826664L");
+//		
+//		System.out.println(cliente);
 		
 	}
 

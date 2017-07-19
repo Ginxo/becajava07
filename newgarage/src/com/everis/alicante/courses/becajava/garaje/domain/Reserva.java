@@ -4,8 +4,6 @@ import java.util.Date;
 
 public class Reserva {
 	
-	private static final String GUION="-";
-	
 	private String codigoReserva;
 	
 	private Cliente cliente;
@@ -58,27 +56,21 @@ public class Reserva {
 		this.fechaFin = fechaFin;
 	}
 
-
-
-
+	public void setCodigoReserva(String codigoReserva) {
+		this.codigoReserva = codigoReserva;
+	}
+	
 	public String getCodigoReserva() {
-	
-	
-	//logica del codigo de reserva
-	String codigo="";
-	codigoReserva=codigoReserva.concat(String.valueOf(this.plaza.getNumeroPlaza()));
-	codigoReserva=codigoReserva.concat(this.GUION);
-	codigoReserva=codigoReserva.concat(String.valueOf(this.plaza.getCliente().getNif()));
-	codigoReserva.concat(String.valueOf(Math.random()*100000));
-	
-	return codigoReserva;
-	
-}
-	
+			
+		return codigoReserva;
+	}
+
 	public String convierteAFormatoTxt(){
 		
 		String str="";
 		
+		str=str.concat(String.valueOf(this.getCodigoReserva()));
+		str=str.concat(";");
 		str=str.concat(String.valueOf(this.plaza.getNumeroPlaza()));
 		str=str.concat(";");
 		str=str.concat(this.cliente.getNif());
@@ -90,4 +82,6 @@ public class Reserva {
 		
 		return str;
 	}
+	
+
 }
