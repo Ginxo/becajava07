@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.interfaces;
+package com.everis.alicante.courses.becajava.garaje.interfaces;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
+import com.everis.alicante.courses.becajava.garaje.interfaces.PlazaDAO;
 
 public class PlazaDAOFileImp implements PlazaDAO {
 

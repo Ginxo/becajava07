@@ -1,6 +1,6 @@
 package com.everis.alicante.courses.becajava.garaje.domain;
 
-import com.everis.alicante.courses.becajava.interfaces.Aparcable;
+import com.everis.alicante.courses.becajava.garaje.interfaces.Aparcable;
 
 public class Motocicleta extends Vehiculo implements Aparcable{
 	

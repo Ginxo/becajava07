@@ -7,9 +7,9 @@ import java.util.Scanner;
 import com.everis.alicante.courses.becajava.garaje.controller.ControladorGarajeConArrays;
 import com.everis.alicante.courses.becajava.garaje.domain.Garaje;
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
-import com.everis.alicante.courses.becajava.interfaces.ControladorGaraje;
-import com.everis.alicante.courses.becajava.interfaces.PlazaDAO;
-import com.everis.alicante.courses.becajava.interfaces.PlazaDAOFileImp;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ControladorGaraje;
+import com.everis.alicante.courses.becajava.garaje.interfaces.PlazaDAO;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.PlazaDAOFileImp;
 
 public class GarajeMain {
 

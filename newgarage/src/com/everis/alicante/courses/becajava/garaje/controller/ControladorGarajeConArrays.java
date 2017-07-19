@@ -15,10 +15,10 @@ import com.everis.alicante.courses.becajava.garaje.domain.Motocicleta;
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.domain.Reserva;
 import com.everis.alicante.courses.becajava.garaje.domain.Vehiculo;
-import com.everis.alicante.courses.becajava.interfaces.Aparcable;
-import com.everis.alicante.courses.becajava.interfaces.ControladorGaraje;
-import com.everis.alicante.courses.becajava.interfaces.ReservaDAO;
-import com.everis.alicante.courses.becajava.interfaces.ReservaDAOFileImp;
+import com.everis.alicante.courses.becajava.garaje.interfaces.Aparcable;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ControladorGaraje;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ReservaDAO;
+import com.everis.alicante.courses.becajava.garaje.interfaces.implementacion.ReservaDAOFileImp;
 
 public class ControladorGarajeConArrays implements ControladorGaraje{
 

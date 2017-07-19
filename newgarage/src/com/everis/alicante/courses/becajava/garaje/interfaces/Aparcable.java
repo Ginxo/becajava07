@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.interfaces;
+package com.everis.alicante.courses.becajava.garaje.interfaces;
 
 public interface Aparcable {
 	

@@ -4,6 +4,10 @@ import java.util.Date;
 
 public class Reserva {
 	
+	private static final String GUION="-";
+	
+	private String codigoReserva;
+	
 	private Cliente cliente;
 	
 	private Plaza plaza;
@@ -55,8 +59,22 @@ public class Reserva {
 	}
 
 
-	
 
+
+	public String getCodigoReserva() {
+	
+	
+	//logica del codigo de reserva
+	String codigo="";
+	codigoReserva=codigoReserva.concat(String.valueOf(this.plaza.getNumeroPlaza()));
+	codigoReserva=codigoReserva.concat(this.GUION);
+	codigoReserva=codigoReserva.concat(String.valueOf(this.plaza.getCliente().getNif()));
+	codigoReserva.concat(String.valueOf(Math.random()*100000));
+	
+	return codigoReserva;
+	
+}
+	
 	public String convierteAFormatoTxt(){
 		
 		String str="";
@@ -72,6 +90,4 @@ public class Reserva {
 		
 		return str;
 	}
-	
-
 }

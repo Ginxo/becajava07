@@ -1,7 +1,7 @@
 package com.everis.alicante.courses.becajava.garaje.domain;
 
-import com.everis.alicante.courses.becajava.interfaces.Aparcable;
-import com.everis.alicante.courses.becajava.interfaces.Lavable;
+import com.everis.alicante.courses.becajava.garaje.interfaces.Aparcable;
+import com.everis.alicante.courses.becajava.garaje.interfaces.Lavable;
 
 public class Coche extends Vehiculo implements Aparcable,Lavable{
 	

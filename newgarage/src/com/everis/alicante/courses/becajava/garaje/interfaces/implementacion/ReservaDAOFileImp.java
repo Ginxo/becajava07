@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.interfaces;
+package com.everis.alicante.courses.becajava.garaje.interfaces.implementacion;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +10,7 @@ import com.everis.alicante.courses.becajava.garaje.domain.Cliente;
 import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.domain.Reserva;
 import com.everis.alicante.courses.becajava.garaje.domain.Vehiculo;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ReservaDAO;
 
 public class ReservaDAOFileImp implements ReservaDAO {
 
