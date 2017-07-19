@@ -2,7 +2,6 @@ package com.everis.alicante.courses.becajava.garage.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -81,6 +80,7 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 		
 		System.out.println("Inserte el nombre completo del Cliente");
 		
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);		
 		cliente.setNombreCompleto(in.nextLine());
 		
@@ -133,6 +133,7 @@ public class ControladorGarajeConArrays implements ControladorGaraje{
 				reserva.setCliente(cliente);
 				reserva.setPlaza(plaza);
 				reserva.setFechaReserva(Calendar.getInstance().getTime());
+				reserva.setCodigoReserva("AUN NO PODEMOS");
 				
 				dao.saveReserva(reserva);				
 				

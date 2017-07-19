@@ -71,9 +71,7 @@ public class GarageMain {
 		
 		 garaje= new Garaje();		
 		  
-		PlazaDAO plazaDao= new PlazaDAOFileImp();			  
-	    
-//		Plaza[] plazas= plazaDao.readPlazas(),;		
+		PlazaDAO plazaDao= new PlazaDAOFileImp();	
 
 		List<Plaza> plazasTemp= plazaDao.readPlazas();
 		

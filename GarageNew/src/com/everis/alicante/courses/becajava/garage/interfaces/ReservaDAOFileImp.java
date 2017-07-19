@@ -1,11 +1,16 @@
 package com.everis.alicante.courses.becajava.garage.interfaces;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import com.everis.alicante.courses.becajava.garage.GarageMain;
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
 import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 import com.everis.alicante.courses.becajava.garage.domain.Reserva;
@@ -29,6 +34,43 @@ public class ReservaDAOFileImp implements ReservaDAO {
 		
 
 	}
+	
+	@Override
+	public List<Reserva> readReservas() throws IOException {
+						
+		 List<Reserva> plazas= new ArrayList<Reserva>();		 
+		
+		 String linea;
+		 
+		 File file= new File("src/resources/Reservas.txt");
+		 FileReader reader= new FileReader(file);
+		 BufferedReader  buffer= new BufferedReader(reader);
+		 		 
+		 while((linea=buffer.readLine())!=null){				  
+			
+			if(!linea.contains("CODIGO_RESERVA")||linea.isEmpty()){
+				
+				Reserva reserva= new Reserva();			
+				
+				String[] temp= linea.split(";");
+				
+				reserva.setCodigoReserva(temp[0]);		
+				
+				Plaza plaza=GarageMain.getGaraje().getPlazas().get(Integer.parseInt(temp[1]));
+				
+				reserva.setPlaza(plaza);							
+										
+				plazas.add(reserva);	
+			
+			}
+			
+		 }
+			 
+		 reader.close();		
+		 	  	
+		return  plazas;
+	}
+
 
 	public static void main(String args[]) throws IOException{
 		

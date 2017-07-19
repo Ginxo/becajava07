@@ -16,5 +16,6 @@ public class GarageMain {
         System.out.println(GarageMenu.getInstance().play());
     }
 
+    
 
 }
