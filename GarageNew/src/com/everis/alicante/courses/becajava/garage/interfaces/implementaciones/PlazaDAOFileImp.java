@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
@@ -13,9 +13,9 @@ import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
 public class PlazaDAOFileImp implements PlazaDAO {
 
 	@Override
-	public List<Plaza> readPlazas() throws IOException {
+	public Map<Integer,Plaza> readPlazas() throws IOException {
 						
-		 List<Plaza> plazas= new ArrayList<Plaza>();		 
+		 Map<Integer,Plaza> plazas= new TreeMap<Integer,Plaza>();		 
 		
 		 String linea;
 		 
@@ -35,7 +35,7 @@ public class PlazaDAOFileImp implements PlazaDAO {
 				
 				plazaTemp.setPrecio(Double.parseDouble(temp[1]));
 										
-				plazas.add(plazaTemp);	
+				plazas.put(plazaTemp.getNumeroPlaza(),plazaTemp);	
 			
 			}
 			

@@ -1,18 +1,14 @@
 package com.everis.alicante.courses.becajava.garage;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.everis.alicante.courses.becajava.garage.controller.ControladorGaraje;
 import com.everis.alicante.courses.becajava.garage.controller.ControladorGarajeImpl;
 import com.everis.alicante.courses.becajava.garage.domain.Garaje;
-import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
-import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
-import com.everis.alicante.courses.becajava.garage.interfaces.ReservaDAO;
-import com.everis.alicante.courses.becajava.garage.interfaces.VehiculoDAO;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.ClienteDAOFileImpl;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.PlazaDAOFileImp;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.ReservaDAOFileImp;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.VehiculoDAOFileImpl;
+import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 
 public class GarageMain {
 
@@ -48,12 +44,13 @@ public class GarageMain {
 		Scanner in = new Scanner(System.in);
 		Integer opcion = in.nextInt();
 	    boolean resultado = true;   
+	    Map<Integer,Plaza> mapa=null;
 		
 		System.out.println("Ha elegido la opcion :" + opcion);
 				
 		switch (opcion) {
 			case 1:	
-				controlador.listarPlazasLibres();			
+				mapa = controlador.listarPlazasLibres();			
 				break;
 			case 2:			
 				controlador.listarPlazasOcupadas();			
@@ -74,6 +71,17 @@ public class GarageMain {
 				System.out.println("Error");
 				break;
 			}
+		
+		if(opcion==1){
+			
+			for (Iterator<Plaza> iterator = mapa.values().iterator(); iterator.hasNext();) {
+					
+				Plaza plaza = (Plaza) iterator.next();
+				
+				System.out.println("Plaza libre numero: " + plaza.getNumeroPlaza());				
+				
+			}
+		}
 		
 		
 		if(opcion==3&&resultado){

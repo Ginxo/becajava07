@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -27,11 +26,11 @@ import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.V
 public class ControladorGarajeImpl implements ControladorGaraje{
 
 	@Override
-	public void listarPlazasLibres() throws IOException {
+	public Map<Integer,Plaza> listarPlazasLibres() throws IOException {
 		
 		PlazaDAO plazaDao= new PlazaDAOFileImp();
 		
-		List<Plaza> plazasTotales = plazaDao.readPlazas();
+		Map<Integer, Plaza> plazasTotales = plazaDao.readPlazas();
 		
 		ReservaDAO reservaDAO= new ReservaDAOFileImp();
 		
@@ -39,16 +38,11 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		for (Reserva reserva : reservas) {
 			
-			plazasTotales.remove(reserva.getCodigoReserva());
+			plazasTotales.remove(Integer.parseInt(reserva.getCodigoReserva()));
 			
 		}
 		
-		System.out.println("PLAZAS LIBRES: ");
-		
-		for (Plaza plaza : plazasTotales) {
-			
-			System.out.println(plaza);
-		}
+		return plazasTotales;
 		
 	}
 
@@ -124,14 +118,14 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 						
 		cliente.setVehiculo(vehiculo);
 		
-		boolean hayplaza=false;
-		PlazaDAO plazaDao= new PlazaDAOFileImp();		
-		List<Plaza> plazas=plazaDao.readPlazas();
-		
-		for (Plaza plaza : plazas) {
+		boolean hayplaza=false;							
+	
+		 Map<Integer, Plaza> plazas = listarPlazasLibres();		
+				
+		for (Plaza plaza : plazas.values()) {
 			
-			if (plaza.getLibre()&&vehiculo instanceof Aparcable) {				
-				plaza.setCliente(cliente);				
+			if (vehiculo instanceof Aparcable) {				
+								
 				hayplaza=true;
 				
 				Reserva reserva= new Reserva();
@@ -171,20 +165,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 					
 		}
 		
-//		System.out.println(clientes.keySet());
-		
-//		System.out.println("--------------------------------");
-		
-//		System.out.println(clientes.values());
-		
-//		System.out.println("--------------------------------");
-		
-//		clientes.values().contains("PEPE");
-//		
-//		Cliente cliente = clientes.get("45826664L");
-//		
-//		System.out.println(cliente);
-		
+
 	}
 
 	
