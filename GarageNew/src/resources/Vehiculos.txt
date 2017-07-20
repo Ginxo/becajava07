@@ -1,3 +1,2 @@
 MATRICULA;TIPO_VEHICULO
-1234 gth;Coche
-2345 ght;Motocicleta
+6787 DHG;Coche

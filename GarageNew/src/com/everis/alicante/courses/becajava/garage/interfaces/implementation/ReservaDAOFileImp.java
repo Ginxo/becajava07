@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -36,7 +38,7 @@ public class ReservaDAOFileImp implements ReservaDAO {
 	
 	
 	@Override
-	public Map<String,Reserva> readReservas() throws IOException {
+	public Map<String,Reserva> readReservas() throws IOException, ParseException {
 						
 		 Map<String,Reserva> reservas= new TreeMap<String,Reserva>();
 		 
@@ -65,6 +67,12 @@ public class ReservaDAOFileImp implements ReservaDAO {
 				reserva.setCliente(daocliente.readCliente(temp[2]));
 								
 				reserva.getCliente().setVehiculo(daoVehiculo.readVehiculo(temp[3]));
+				
+				String fecha=temp[4];
+				
+				SimpleDateFormat formatter= new SimpleDateFormat("dd/MM/yyyy");
+				
+				reserva.setFechaReserva(formatter.parse(fecha));
 				
 				reservas.put(reserva.getCodigoReserva(),reserva);	
 			

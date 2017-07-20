@@ -1,5 +1,6 @@
 package com.everis.alicante.courses.becajava.garage.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reserva {
@@ -76,8 +77,9 @@ public class Reserva {
 		str=str.concat(this.cliente.getNif());
 		str=str.concat(";");
 		str=str.concat(this.cliente.getVehiculo().getMatricula());
-		str=str.concat(";");
-		str=str.concat(this.fechaReserva.toString());
+		str=str.concat(";");		
+		SimpleDateFormat formatter= new SimpleDateFormat("dd/MM/yyyy");			
+		str=str.concat(formatter.format(fechaReserva));
 		
 		
 		return str;

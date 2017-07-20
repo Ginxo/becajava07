@@ -1,5 +1,8 @@
 package com.everis.alicante.courses.becajava.garage;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,10 +16,12 @@ public class GarageMain {
 
 		static Garaje garaje;
 		
-		static ControladorGaraje controlador;
+		static ControladorGaraje controlador;		
 		
+		static Date fechaInicio = null;
+		static Date fechaFin=null;
 		
-		public static void main(String[] args) throws IOException {	
+		public static void main(String[] args) throws IOException, ParseException {	
 		
 		
 			inicializarComponentes();
@@ -28,7 +33,7 @@ public class GarageMain {
 	}
 	
 	@SuppressWarnings("resource")
-	private static void iniciarAplicacion() throws IOException {
+	private static void iniciarAplicacion() throws IOException, ParseException {
 		
 		System.out.println("*******************************************************");	
 		
@@ -39,6 +44,7 @@ public class GarageMain {
 		System.out.println("4:Listar Clientes");
 		System.out.println("5:Listar Reservas");
 		System.out.println("6:Listar Vehiculos");
+		System.out.println("7:Listar por Fecha de Reserva");
 		
 		Scanner in = new Scanner(System.in);
 		Integer opcion = in.nextInt();
@@ -46,6 +52,8 @@ public class GarageMain {
 	    Map<Integer,Plaza> mapa=null;
 		
 		System.out.println("Ha elegido la opcion :" + opcion);
+		
+		
 				
 		switch (opcion) {
 			case 1:	
@@ -65,6 +73,10 @@ public class GarageMain {
 				break;
 			case 6:			
 				controlador.listarVehiculos();		
+				break;
+			case 7:	
+				validarFechasEntrada();
+				controlador.listarReservasByFecha(fechaInicio, fechaFin);		
 				break;
 			default:
 				System.out.println("Error");
@@ -93,18 +105,61 @@ public class GarageMain {
 		
 	}
 
-	public static void inicializarComponentes() throws IOException{
-		
-		garaje= new Garaje();			
-		
-		controlador= new ControladorGarajeImpl();
-	
+	public static void inicializarComponentes() throws IOException{		
+		garaje= new Garaje();		
+		controlador= new ControladorGarajeImpl();	
 		
 	}
 
-//	public static Garaje getGaraje() {
-//		return garaje;
-//	}
+
+	public static void validarFechasEntrada(){
+		
+		SimpleDateFormat formatter= new SimpleDateFormat("dd/MM/yyyy");
+		
+		if(fechaInicio==null){
+		
+			System.out.println("Introduce la fecha de Inicio para la busqueda en formato dd/MM/yyyy: ");
+			@SuppressWarnings("resource")
+			Scanner in = new Scanner(System.in);
+			String tmp=in.nextLine();		
+			
+			try {			
+				fechaInicio=formatter.parse(tmp);	
+				
+				System.out.println("Introduce la fecha de Fin para la busqueda en formato dd/MM/yyyy: ");
+				in = new Scanner(System.in);
+				tmp=in.nextLine();
+				
+				fechaFin=formatter.parse(tmp);
+				
+			} catch (Exception e) {
+				
+				System.out.println("La fecha introducida es incorrecta");
+				validarFechasEntrada();
+			}
+		}
+		else if(fechaFin==null){
+			
+			System.out.println("Introduce la fecha de Fin para la busqueda en formato dd/MM/yyyy: ");
+			@SuppressWarnings("resource")
+			Scanner in = new Scanner(System.in);
+			String tmp = in.nextLine();
+			
+			try {
+				
+				fechaFin=formatter.parse(tmp);
+				
+			} catch (ParseException e) {	
+				
+				System.out.println("La fecha introducida es incorrecta");
+				validarFechasEntrada();
+				
+			}
+			
+			
+		}
+		
+	}
 	
 	
 }

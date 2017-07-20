@@ -1,5 +1,7 @@
 package com.everis.alicante.courses.becajava.examples;
 
+import java.util.ArrayList;
+
 public class GenericidadExample {
 
 	
@@ -12,7 +14,7 @@ public class GenericidadExample {
 		String valor=(String) contenedor.getContenido();
 		
 		// Error de casting en tiempo de ejecución.		
-//		Deposito deposito=(Deposito) contenedor.getContenido();
+		Deposito deposito=(Deposito) contenedor.getContenido();
 		
 		ContenedorGenerico<String> contenedorGenerico1 = new ContenedorGenerico<String>();		
 		contenedorGenerico1.setContenido("hola");		
@@ -21,8 +23,8 @@ public class GenericidadExample {
 		ContenedorGenerico<Deposito> contenedorGenerico2 = new ContenedorGenerico<Deposito>();		
 		contenedorGenerico2.setContenido(new Deposito());		
 		Deposito valor2=(Deposito) contenedor.getContenido();
-		
-		
+	
+	
 		
 	}
 	
