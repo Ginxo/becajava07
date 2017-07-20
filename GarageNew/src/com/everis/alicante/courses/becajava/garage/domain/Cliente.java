@@ -50,6 +50,19 @@ public class Cliente {
 		this.vehiculo = vehiculo;
 	}
 	
+	public String convierteAFormatoTxt(){
+		
+		String str="";
+		
+		str=str.concat(String.valueOf(this.nif));
+		str=str.concat(";");
+		str=str.concat(String.valueOf(this.nombreCompleto));
+		str=str.concat(";");
+		str=str.concat(this.getVehiculo().getMatricula());			
+		
+		
+		return str;
+	}
 	
 	
 

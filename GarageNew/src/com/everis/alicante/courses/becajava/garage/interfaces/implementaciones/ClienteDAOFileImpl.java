@@ -1,8 +1,10 @@
 package com.everis.alicante.courses.becajava.garage.interfaces.implementaciones;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
@@ -47,8 +49,17 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 	}
 
 	@Override
-	public void createCliente(Cliente cliente) {
+	public void createCliente(Cliente cliente) throws IOException {
 		
+		 File file= new File("src/resources/Clientes.txt");
+		 FileWriter writer= new FileWriter(file,true);
+		 BufferedWriter  buffer= new BufferedWriter(writer);
+		
+		 buffer.newLine();		 
+		 
+		 buffer.write(cliente.convierteAFormatoTxt());		
+		
+		 buffer.close();
 		
 	}
 

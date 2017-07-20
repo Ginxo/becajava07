@@ -43,6 +43,7 @@ public class GarageMain {
 		System.out.println("3:Reservar Plazas");
 		System.out.println("4:Listar Clientes");
 		System.out.println("5:Listar Reservas");
+		System.out.println("6:Listar Vehiculos");
 		
 		Scanner in = new Scanner(System.in);
 		Integer opcion = in.nextInt();
@@ -66,6 +67,9 @@ public class GarageMain {
 			case 5:			
 				controlador.listarReservas();		
 				break;
+			case 6:			
+				controlador.listarVehiculos();		
+				break;
 			default:
 				System.out.println("Error");
 				break;
@@ -84,29 +88,16 @@ public class GarageMain {
 
 	public static void inicializarComponentes() throws IOException{
 		
-		garaje= new Garaje();		
-		  
-		PlazaDAO plazaDao= new PlazaDAOFileImp();	
-		ReservaDAO reservaDao= new ReservaDAOFileImp();
-		ClienteDAO clienteDao= new ClienteDAOFileImpl();
-		VehiculoDAO  vehiculoDao= new VehiculoDAOFileImpl();
-		
-		garaje.setPlazas(plazaDao.readPlazas());		
-		
-		garaje.setClientes(clienteDao.readClientes());
-		
-		garaje.setVehiculos(vehiculoDao.readVehiculos());
-		
-		garaje.setReservas(reservaDao.readReservas());
+		garaje= new Garaje();			
 		
 		controlador= new ControladorGarajeImpl();
 	
 		
 	}
 
-	public static Garaje getGaraje() {
-		return garaje;
-	}
+//	public static Garaje getGaraje() {
+//		return garaje;
+//	}
 	
 	
 }

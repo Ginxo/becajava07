@@ -17,8 +17,12 @@ import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 import com.everis.alicante.courses.becajava.garage.domain.Reserva;
 import com.everis.alicante.courses.becajava.garage.domain.Vehiculo;
 import com.everis.alicante.courses.becajava.garage.interfaces.Aparcable;
+import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.ReservaDAO;
+import com.everis.alicante.courses.becajava.garage.interfaces.VehiculoDAO;
+import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.ClienteDAOFileImpl;
 import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.ReservaDAOFileImp;
+import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.VehiculoDAOFileImpl;
 
 public class ControladorGarajeImpl implements ControladorGaraje{
 
@@ -44,7 +48,6 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		}
 
-
 	@Override
 	public void listarPlazasOcupadas() {
 		
@@ -67,7 +70,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		
 	}
-
+	
 	@Override
 	public boolean reservarPlaza() throws IOException {
 		
@@ -75,7 +78,9 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		Cliente cliente= new Cliente();
 		
-		ReservaDAO dao= new ReservaDAOFileImp();
+		ReservaDAO daoReserva= new ReservaDAOFileImp();
+		ClienteDAO daoCliente=new ClienteDAOFileImpl();
+		VehiculoDAO daoVehiculo=new VehiculoDAOFileImpl();
 		
 		//vamos a escribir por pantalla un menu para meter los datos del cliente
 		
@@ -93,7 +98,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		System.out.println("Tipo de vehiculo del propietario:");	
 		System.out.println("1: Coche:");	
-		System.out.println("2: Moto");	
+		System.out.println("2: Motocicleta");	
 		System.out.println("3: Camion");
 		
 		in = new Scanner(System.in);
@@ -117,7 +122,8 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		System.out.println("Inserte la matricula del vehiculo:");
 		in = new Scanner(System.in);
 		vehiculo.setMatricula(in.nextLine());
-				
+		vehiculo.setTipoVehiculo(vehiculo.getClass().getSimpleName());
+						
 		cliente.setVehiculo(vehiculo);
 		
 		boolean hayplaza=false;
@@ -134,9 +140,13 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 				reserva.setCliente(cliente);
 				reserva.setPlaza(plaza);
 				reserva.setFechaReserva(Calendar.getInstance().getTime());
-				reserva.setCodigoReserva("AUN NO PODEMOS");
+				reserva.setCodigoReserva(String.valueOf(plaza.getNumeroPlaza()));
 				
-				dao.createReserva(reserva);				
+				daoReserva.createReserva(reserva);		
+				
+				daoCliente.createCliente(cliente);
+				
+				daoVehiculo.createVehiculo(vehiculo);
 				
 				return hayplaza;
 			}		
@@ -146,19 +156,21 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 	}
 
-
+	
 	@Override
-	public void listarClientes() {
+	public void listarClientes() throws IOException {
 		
-		Map<String, Cliente> clientes = GarageMain.getGaraje().getClientes();
+		ClienteDAO daoCliente= new ClienteDAOFileImpl();		
+		
+		Map<String, Cliente> clientes = daoCliente.readClientes();;
 				
 		Collection<Cliente> collection = clientes.values();
 		
 		for (Iterator<Cliente> iterator = collection.iterator(); iterator.hasNext();) {
 			Cliente cliente = (Cliente) iterator.next();
 			
-			System.out.println(cliente.getNombreCompleto());
-			
+			System.out.println(cliente.getNombreCompleto()+";" + cliente.getNif());			
+					
 		}
 		
 //		System.out.println(clientes.keySet());
@@ -177,7 +189,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 	}
 
-
+	
 	@Override
 	public void listarReservas() throws IOException {
 	
@@ -193,6 +205,23 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 			 System.out.println("numero de plaza reservada: " +reserva.getPlaza().getNumeroPlaza());
 			 System.out.println("cliente: " +reserva.getCliente().getNombreCompleto());
 			 System.out.println("vehiculo: " +reserva.getCliente().getVehiculo().getMatricula() +" - " + reserva.getCliente().getVehiculo().getTipoVehiculo());
+			
+		}
+		
+	}
+
+
+	
+	@Override
+	public void listarVehiculos() throws IOException {
+		
+		VehiculoDAO daoVehiculo= new VehiculoDAOFileImpl();
+	
+		Collection<Vehiculo> vehiculos = daoVehiculo.readVehiculos().values();
+		
+		for (Vehiculo vehiculo : vehiculos) {
+			
+			System.out.println(vehiculo.getMatricula()+"-" + vehiculo.getTipoVehiculo());
 			
 		}
 		

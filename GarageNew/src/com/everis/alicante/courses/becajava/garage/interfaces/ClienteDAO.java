@@ -9,7 +9,7 @@ public interface ClienteDAO {
 
 	 Map<String,Cliente> readClientes() throws IOException;
 	 
-	 void createCliente(Cliente cliente);
+	 void createCliente(Cliente cliente) throws IOException;
 	
 	
 }
