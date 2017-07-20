@@ -43,6 +43,13 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 			
 		}
 		
+		System.out.println("PLAZAS LIBRES: ");
+		
+		for (Plaza plaza : plazasTotales) {
+			
+			System.out.println(plaza);
+		}
+		
 	}
 
 	@Override
@@ -52,6 +59,8 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		Collection<Reserva> reservas = reservaDAO.readReservas().values();			
 				
+		System.out.println("PLAZAS OCUPADAS: ");
+		
 		for (Reserva reserva : reservas) {
 			
 			System.out.println("La plaza numero: " + reserva.getCodigoReserva()+" esta reservada");
