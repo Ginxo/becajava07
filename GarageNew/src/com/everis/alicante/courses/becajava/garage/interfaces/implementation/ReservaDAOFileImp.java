@@ -1,4 +1,4 @@
-package com.everis.alicante.courses.becajava.garage.interfaces.implementaciones;
+package com.everis.alicante.courses.becajava.garage.interfaces.implementation;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

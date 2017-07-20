@@ -18,10 +18,10 @@ import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.ReservaDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.VehiculoDAO;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.ClienteDAOFileImpl;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.PlazaDAOFileImp;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.ReservaDAOFileImp;
-import com.everis.alicante.courses.becajava.garage.interfaces.implementaciones.VehiculoDAOFileImpl;
+import com.everis.alicante.courses.becajava.garage.interfaces.implementation.ClienteDAOFileImpl;
+import com.everis.alicante.courses.becajava.garage.interfaces.implementation.PlazaDAOFileImp;
+import com.everis.alicante.courses.becajava.garage.interfaces.implementation.ReservaDAOFileImp;
+import com.everis.alicante.courses.becajava.garage.interfaces.implementation.VehiculoDAOFileImpl;
 
 public class ControladorGarajeImpl implements ControladorGaraje{
 
@@ -120,7 +120,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		boolean hayplaza=false;							
 	
-		 Map<Integer, Plaza> plazas = listarPlazasLibres();		
+		Map<Integer, Plaza> plazas = listarPlazasLibres();		
 				
 		for (Plaza plaza : plazas.values()) {
 			
