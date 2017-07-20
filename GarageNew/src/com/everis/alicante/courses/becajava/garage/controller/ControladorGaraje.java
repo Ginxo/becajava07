@@ -4,8 +4,8 @@ import java.io.IOException;
 
 public interface ControladorGaraje {
 	
-	void listarPlazasLibres();
-	void listarPlazasOcupadas();
+	void listarPlazasLibres() throws IOException;
+	void listarPlazasOcupadas() throws IOException;
 	boolean reservarPlaza() throws IOException;
 	void listarClientes() throws IOException;
 	void listarReservas() throws IOException;

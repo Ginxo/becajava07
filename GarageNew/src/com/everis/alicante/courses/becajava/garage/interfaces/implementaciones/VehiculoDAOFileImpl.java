@@ -63,4 +63,46 @@ public class VehiculoDAOFileImpl implements VehiculoDAO {
 		
 	}
 
+	@Override
+	public Vehiculo readVehiculo(String matricula) throws IOException {
+		
+		 Vehiculo vehiculoTemp=null; 
+		
+		 String linea;
+		 
+		 File file= new File("src/resources/Vehiculos.txt");
+		 FileReader reader= new FileReader(file);
+		 BufferedReader  buffer= new BufferedReader(reader);
+		 		 
+		 while((linea=buffer.readLine())!=null){				  
+			
+			if(!linea.contains("MATRICULA")||linea.isEmpty()){
+				
+				String[] temp= linea.split(";");
+				
+				if(matricula.equals(temp[0])){					
+				
+					vehiculoTemp= new Vehiculo();			
+				
+					vehiculoTemp.setMatricula(temp[0]);		
+				
+					vehiculoTemp.setTipoVehiculo(temp[1]);					
+										
+				}			
+			
+			}
+			
+		 }
+			 
+		 reader.close();		
+		 	  	
+		return  vehiculoTemp;
+	}
+
+	@Override
+	public void deleteVehiculo(String matricula) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

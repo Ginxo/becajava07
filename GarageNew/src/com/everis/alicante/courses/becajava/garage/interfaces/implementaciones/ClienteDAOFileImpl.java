@@ -63,4 +63,43 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 		
 	}
 
+	@Override
+	public Cliente readCliente(String nif) throws IOException {
+		 
+		 Cliente clienteTemp=null;			
+		 String linea;
+		 
+		 File file= new File("src/resources/Clientes.txt");
+		 FileReader reader= new FileReader(file);
+		 BufferedReader  buffer= new BufferedReader(reader);
+		 		 
+		 while((linea=buffer.readLine())!=null){				  
+			
+			if(!linea.contains("NIF")||linea.isEmpty()){
+			
+				String[] temp= linea.split(";");
+			
+				if(nif.equals(temp[0])){
+										
+					clienteTemp= new Cliente();						
+					clienteTemp.setNif(temp[0]);
+					clienteTemp.setNombreCompleto(temp[1]);			
+					
+				}
+						
+			}
+			
+		 }
+			 
+		 reader.close();		
+		 	  	
+		return  clienteTemp;	
+	}
+
+	@Override
+	public void deleteCliente(String nif) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -11,7 +11,7 @@ public interface PlazaDAO {
 	
 	void createPlaza(Plaza plaza);
 	
-	Plaza readPlaza(int numeroPlaza);
+	Plaza readPlaza(int numeroPlaza) throws IOException;
 	
 	void deletePlaza(int numeroPlaza);
 	

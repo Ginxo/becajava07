@@ -49,11 +49,4 @@ public class Garaje {
 	}
 
 	
-
-
-	
-
-	
-	
-	
 }
