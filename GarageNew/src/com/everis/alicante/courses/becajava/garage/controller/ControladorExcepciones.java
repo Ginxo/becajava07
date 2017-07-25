@@ -14,6 +14,7 @@ public interface ControladorExcepciones {
 		e.gestionaExcepcion();
 		
 		GarajeExceptionDAO dao= new GarajeExceptionDAOImpl();
+		
 		try {
 			dao.create(e);
 			

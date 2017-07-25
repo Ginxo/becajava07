@@ -8,17 +8,19 @@ public class GarajeException extends Exception{
 	 */
 	private static final long serialVersionUID = -6474336936597609781L;
 	
+	private Throwable causa;
+	
 	public void gestionaExcepcion() {
 		
 		System.out.println("Ha ocurrido una excepcion ; ");
-		System.out.println("del tipo :" +super.getClass());		
+		System.out.println("en la clase :" +super.getClass());		
 		System.out.println(" y con esta causa: " + super.getCause());
 		
 	}
 	
 
 	public GarajeException(Exception e) {
-		super.initCause(e);	
+		this.causa=e.getCause();	
 	}
 
 
@@ -28,7 +30,7 @@ public class GarajeException extends Exception{
 
 
 	public Throwable getCause() {
-		return super.getCause();
+		return this.causa;
 	}
 
 
@@ -39,7 +41,7 @@ public class GarajeException extends Exception{
 		tmp=tmp.concat(";");
 		tmp=tmp.concat(this.getClass().getSimpleName());
 		tmp=tmp.concat(";");
-		tmp=tmp.concat(this.getCause().toString());
+		tmp=tmp.concat(getCause().toString());
 		
 		return tmp;
 		
