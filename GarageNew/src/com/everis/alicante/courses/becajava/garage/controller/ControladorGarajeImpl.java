@@ -11,6 +11,7 @@ import java.util.Scanner;
 import com.everis.alicante.courses.becajava.garage.domain.Camion;
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
 import com.everis.alicante.courses.becajava.garage.domain.Coche;
+import com.everis.alicante.courses.becajava.garage.domain.GarajeException;
 import com.everis.alicante.courses.becajava.garage.domain.Motocicleta;
 import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 import com.everis.alicante.courses.becajava.garage.domain.Reserva;
@@ -29,23 +30,37 @@ import com.everis.alicante.courses.becajava.garage.utils.ValidadorNIF;
 public class ControladorGarajeImpl implements ControladorGaraje{
 
 	@Override
-	public Map<Integer,Plaza> listarPlazasLibres() throws IOException, ParseException {
+	public Map<Integer,Plaza> listarPlazasLibres() throws GarajeException {
 		
-		PlazaDAO plazaDao= new PlazaDAOFileImp();
+		Map<Integer, Plaza> plazasTotales = null;
 		
-		Map<Integer, Plaza> plazasTotales = plazaDao.readPlazas();
 		
-		ReservaDAO reservaDAO= new ReservaDAOFileImp();
-		
-		Collection<Reserva> reservas = reservaDAO.readReservas().values();	
-		
-		for (Reserva reserva : reservas) {
+		try {
 			
-			plazasTotales.remove(Integer.parseInt(reserva.getCodigoReserva()));
+			PlazaDAO plazaDao= new PlazaDAOFileImp();
+			
+			plazasTotales = plazaDao.readPlazas();			
+			
+			ReservaDAO reservaDAO= new ReservaDAOFileImp();
+			
+			Collection<Reserva> reservas = reservaDAO.readReservas().values();	
+			
+			for (Reserva reserva : reservas) {
+				
+				plazasTotales.remove(Integer.parseInt(reserva.getCodigoReserva()));
+				
+			}
+			
+			throw new IOException();	
+			
+			
+		} catch (Exception e) {
+			
+			GarajeException ex= new GarajeException(e);			
+			
+			throw ex;
 			
 		}
-		
-		return plazasTotales;
 		
 	}
 
@@ -67,7 +82,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 	}
 	
 	@Override
-	public boolean reservarPlaza() throws IOException, ParseException {
+	public boolean reservarPlaza() throws IOException, ParseException, GarajeException {
 		
 		//logica de crear cliente
 		
