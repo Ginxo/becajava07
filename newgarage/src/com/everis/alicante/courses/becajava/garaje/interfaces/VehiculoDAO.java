@@ -9,6 +9,10 @@ public interface VehiculoDAO {
 	
 	Map<String,Vehiculo> readVehiculos() throws IOException;
 	
-	void createVehiculo();
+	void createVehiculo(Vehiculo vehiculo) throws IOException;
+	
+	Vehiculo readVehiculo(String matricula) throws IOException;
+	
+	void deleteVehiculo(String matricula) throws IOException;
 
 }

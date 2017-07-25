@@ -6,20 +6,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.everis.alicante.courses.becajava.garaje.GarajeMain;
-import com.everis.alicante.courses.becajava.garaje.domain.Cliente;
-import com.everis.alicante.courses.becajava.garaje.domain.Plaza;
 import com.everis.alicante.courses.becajava.garaje.domain.Reserva;
-import com.everis.alicante.courses.becajava.garaje.domain.Vehiculo;
+import com.everis.alicante.courses.becajava.garaje.interfaces.ClienteDAO;
+import com.everis.alicante.courses.becajava.garaje.interfaces.PlazaDAO;
 import com.everis.alicante.courses.becajava.garaje.interfaces.ReservaDAO;
+import com.everis.alicante.courses.becajava.garaje.interfaces.VehiculoDAO;
 
-public class ReservaDAOFileImpl implements ReservaDAO {
+public class ReservaDAOFileImp implements ReservaDAO {
 
 	@Override
 	public void createReserva(Reserva reserva) throws IOException {
@@ -42,8 +38,12 @@ public class ReservaDAOFileImpl implements ReservaDAO {
 	@Override
 	public Map<String,Reserva> readReservas() throws IOException {
 						
-		 Map<String,Reserva> reservas= new TreeMap<String,Reserva>();		 
-		
+		 Map<String,Reserva> reservas= new TreeMap<String,Reserva>();
+		 
+		 PlazaDAO daoPlaza= new PlazaDAOFileImp();
+		 ClienteDAO daocliente= new ClienteDAOFileImpl();
+		 VehiculoDAO daoVehiculo= new VehiculoDAOFileImpl();
+		 
 		 String linea;
 		 
 		 File file= new File("src/resources/Reservas.txt");
@@ -59,13 +59,13 @@ public class ReservaDAOFileImpl implements ReservaDAO {
 				String[] temp= linea.split(";");
 				
 				reserva.setCodigoReserva(temp[0]);		
+								
+				reserva.setPlaza(daoPlaza.readPlaza(Integer.parseInt(temp[1])));	
 				
-				Plaza plaza=GarajeMain.getGaraje().getPlazas().get(Integer.parseInt(temp[1]));
+				reserva.setCliente(daocliente.readCliente(temp[2]));
+								
+				reserva.getCliente().setVehiculo(daoVehiculo.readVehiculo(temp[3]));
 				
-				reserva.setPlaza(plaza);	
-				
-				reserva.setCliente(GarajeMain.getGaraje().getClientes().get(temp[2]));
-										
 				reservas.put(reserva.getCodigoReserva(),reserva);	
 			
 			}
@@ -75,38 +75,6 @@ public class ReservaDAOFileImpl implements ReservaDAO {
 		 reader.close();		
 		 	  	
 		return  reservas;
-	}
-
-
-	public static void main(String args[]) throws IOException{
-		
-		Reserva reserva= new Reserva();
-		
-		Cliente cliente= new Cliente();
-		cliente.setNif("678678687687");
-		
-		Plaza plaza= new Plaza();
-		plaza.setNumeroPlaza(1);		
-		
-		Vehiculo vehiculo= new Vehiculo();
-		vehiculo.setMatricula("2345 GHF");
-		
-		cliente.setVehiculo(vehiculo);		
-		reserva.setCliente(cliente);
-		reserva.setPlaza(plaza);
-		reserva.setFechaReserva(Calendar.getInstance().getTime());
-		
-		ReservaDAO dao= new ReservaDAOFileImpl();
-		
-		dao.createReserva(reserva);
-		
-		
-	}
-
-
-	public void saveReserva(Reserva reserva) throws IOException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
