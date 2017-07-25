@@ -1,5 +1,4 @@
 package com.everis.alicante.courses.becajava.garage;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,7 +23,7 @@ public class GarageMain {
 		static Date fechaInicio = null;
 		static Date fechaFin=null;
 		
-		public static void main(String[] args) throws IOException, ParseException {	
+		public static void main(String[] args) {	
 		
 		
 			inicializarComponentes();
@@ -36,7 +35,7 @@ public class GarageMain {
 	}
 	
 	@SuppressWarnings("resource")
-	public static void iniciarAplicacion() throws IOException, ParseException  {
+	public static void iniciarAplicacion() {
 		
 		System.out.println("*******************************************************");	
 		
@@ -115,7 +114,7 @@ public class GarageMain {
 		
 	}
 
-	public static void inicializarComponentes() throws IOException{		
+	public static void inicializarComponentes(){		
 		garaje= new Garaje();		
 		controlador= new ControladorGarajeImpl();	
 		
