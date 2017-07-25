@@ -85,11 +85,11 @@ public class GarageMain {
 					break;
 				}
 			
-			if(opcion==1){
+			if(opcion==1&&mapa!=null&&mapa.values()!=null){
 				
 				for (Iterator<Plaza> iterator = mapa.values().iterator(); iterator.hasNext();) {
 						
-					Plaza plaza = (Plaza) iterator.next();
+					Plaza plaza = iterator.next();
 					
 					System.out.println("Plaza libre numero: " + plaza.getNumeroPlaza());				
 					

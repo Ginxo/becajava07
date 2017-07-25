@@ -1,7 +1,5 @@
 package com.everis.alicante.courses.becajava.examples;
 
-import java.awt.datatransfer.StringSelection;
-
 import com.everis.alicante.courses.becajava.garage.domain.Garage;
 import com.everis.alicante.courses.becajava.garage.domain.client.Client;
 

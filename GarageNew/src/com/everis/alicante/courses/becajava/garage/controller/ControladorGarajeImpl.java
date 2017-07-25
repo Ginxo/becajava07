@@ -197,12 +197,12 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 			
 			ClienteDAO daoCliente= new ClienteDAOFileImpl();		
 			
-			Map<String, Cliente> clientes = daoCliente.readClientes();;
+			Map<String, Cliente> clientes = daoCliente.readClientes();
 					
 			Collection<Cliente> collection = clientes.values();
 			
 			for (Iterator<Cliente> iterator = collection.iterator(); iterator.hasNext();) {
-				Cliente cliente = (Cliente) iterator.next();
+				Cliente cliente = iterator.next();
 				
 				System.out.println(cliente.getNombreCompleto()+";" + cliente.getNif());			
 						

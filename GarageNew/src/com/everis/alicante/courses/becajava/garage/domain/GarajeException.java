@@ -8,7 +8,6 @@ public class GarajeException extends Exception{
 	 */
 	private static final long serialVersionUID = -6474336936597609781L;
 	
-	private Throwable causa;
 	
 	public void gestionaExcepcion() {
 		
@@ -20,7 +19,7 @@ public class GarajeException extends Exception{
 	
 
 	public GarajeException(Exception e) {
-		this.causa=e.getCause();	
+		super.initCause(e.getCause());
 	}
 
 
@@ -30,7 +29,7 @@ public class GarajeException extends Exception{
 
 
 	public Throwable getCause() {
-		return this.causa;
+		return super.getCause();
 	}
 
 
@@ -41,7 +40,7 @@ public class GarajeException extends Exception{
 		tmp=tmp.concat(";");
 		tmp=tmp.concat(this.getClass().getSimpleName());
 		tmp=tmp.concat(";");
-		tmp=tmp.concat(getCause().toString());
+		tmp=tmp.concat(this.getCause().toString());
 		
 		return tmp;
 		

@@ -10,14 +10,19 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
+import com.everis.alicante.courses.becajava.garage.domain.GarajeException;
 import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 
 public class ClienteDAOFileImpl implements ClienteDAO {
 
 	@Override
-	public Map<String,Cliente> readClientes() throws IOException {
-							
-			 Map<String,Cliente> clientes= new TreeMap<String,Cliente>();		 
+	public Map<String,Cliente> readClientes() throws GarajeException {
+			
+		Map<String,Cliente> clientes;
+		
+		try {
+		
+			  clientes= new TreeMap<String,Cliente>();		 
 			
 			 String linea;
 			 
@@ -43,7 +48,12 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 				
 			 }
 				 
-			 reader.close();		
+			 reader.close();	
+			 
+				
+		} catch (Exception e) {
+			throw new GarajeException(e);
+		}
 			 	  	
 			return  clientes;	
 	}

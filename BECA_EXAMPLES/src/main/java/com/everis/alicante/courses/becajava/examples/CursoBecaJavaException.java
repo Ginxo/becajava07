@@ -12,6 +12,13 @@ public class CursoBecaJavaException extends Exception{
 	
 		System.out.println("Ha ocurrido un error por el motivo: " + super.getCause());
 		
+		for (int i = 0; i < 10; i++) {
+			int j=0;
+			
+			if(true){
+				
+			}
+		}
 		
 		
 	}
