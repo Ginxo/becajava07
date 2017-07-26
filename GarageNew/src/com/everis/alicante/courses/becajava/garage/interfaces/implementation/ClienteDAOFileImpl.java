@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
-import com.everis.alicante.courses.becajava.garage.domain.GarajeException;
 import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 
 public class ClienteDAOFileImpl implements ClienteDAO {
