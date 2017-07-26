@@ -2,8 +2,11 @@ package com.everis.alicante.courses.becajava.garage.domain;
 
 import java.util.Calendar;
 
+import org.apache.log4j.Logger;
+
 public class GarajeException extends Exception{
 	
+	static Logger log=Logger.getLogger(GarajeException.class);
 
 	private static final long serialVersionUID = -8890393005500715068L;
 	
@@ -11,9 +14,7 @@ public class GarajeException extends Exception{
 	
 	public void gestionaExcepcion() {
 		
-		System.out.println("Ha ocurrido una excepcion ; ");
-		System.out.println("del tipo :" + this.excepcionOrigen.getClass());		
-		System.out.println("y por este motivo: " + this.excepcionOrigen.getLocalizedMessage());
+		log.error("Ha ocurrido una excepcion del tipo : " + this.excepcionOrigen.getClass() +" por este motivo: " + this.excepcionOrigen.getLocalizedMessage());
 		
 	}
 	

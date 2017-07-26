@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
 import com.everis.alicante.courses.becajava.garage.domain.Camion;
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
 import com.everis.alicante.courses.becajava.garage.domain.Coche;
@@ -26,6 +29,8 @@ import com.everis.alicante.courses.becajava.garage.utils.ValidadorNIF;
 
 public class ControladorGarajeImpl implements ControladorGaraje{
 
+	static Logger log=Logger.getLogger(ControladorGarajeImpl.class);
+	
 	@Override
 	public Map<Integer,Plaza> listarPlazasLibres() throws GarajeException {
 		
@@ -111,7 +116,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 			while(!nifCorrecto){
 				System.out.println("Inserte el nif del cliente");	
 				in = new Scanner(System.in);
-				nif=in.nextLine();
+				nif=in.nextLine();				
 				nifCorrecto=ValidadorNIF.validaNif(nif);	
 				if(nifCorrecto==false){
 					System.out.println("NIF INCORRECTO");

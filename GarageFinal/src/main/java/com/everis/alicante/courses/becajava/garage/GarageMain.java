@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
-
+import org.apache.log4j.Logger;
 import com.everis.alicante.courses.becajava.garage.controller.ControladorExcepciones;
 import com.everis.alicante.courses.becajava.garage.controller.ControladorExcepcionesImpl;
 import com.everis.alicante.courses.becajava.garage.controller.ControladorGaraje;
@@ -15,12 +15,15 @@ import com.everis.alicante.courses.becajava.garage.domain.GarajeException;
 import com.everis.alicante.courses.becajava.garage.domain.Plaza;
 
 public class GarageMain {
-
+	
+		static Logger log=Logger.getLogger(GarageMain.class);
+	
 		static Garaje garaje;
 		
 		static ControladorGaraje controlador;		
 		
 		static Date fechaInicio = null;
+		
 		static Date fechaFin=null;
 		
 		public static void main(String[] args) {	
