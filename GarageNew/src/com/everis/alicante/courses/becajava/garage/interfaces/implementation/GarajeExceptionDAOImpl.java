@@ -13,15 +13,16 @@ public class GarajeExceptionDAOImpl implements GarajeExceptionDAO {
 	@Override
 	public void create(GarajeException ex) throws IOException  {
 			
-			File file= new File("src/resources/Excepciones.txt");
+			 File file= new File("src/resources/Excepciones.txt");
 			 FileWriter writer= new FileWriter(file,true);
 			 BufferedWriter  buffer= new BufferedWriter(writer);
 			
 			 buffer.newLine();		 
 			 
-			 buffer.write(ex.adaptaFormatoTxt());		
+			 buffer.write(ex.adaptaFormatoTxt());				
 			
-			 buffer.close();
+			 buffer.close();	
+			
 			
 		}
 

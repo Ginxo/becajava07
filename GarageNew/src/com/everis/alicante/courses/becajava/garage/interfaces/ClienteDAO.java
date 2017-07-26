@@ -4,11 +4,10 @@ import java.io.IOException;
 import java.util.Map;
 
 import com.everis.alicante.courses.becajava.garage.domain.Cliente;
-import com.everis.alicante.courses.becajava.garage.domain.GarajeException;
 
 public interface ClienteDAO {
 
-	 Map<String,Cliente> readClientes() throws GarajeException;
+	 Map<String,Cliente> readClientes() throws IOException;
 	 
 	 void createCliente(Cliente cliente) throws IOException;
 	 

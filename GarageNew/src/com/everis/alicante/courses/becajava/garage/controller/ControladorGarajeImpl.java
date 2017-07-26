@@ -49,10 +49,8 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 			}
 		
 			
-		} catch (Exception e) {
-			
-			GarajeException ex= new GarajeException(e);			
-			
+		} catch (Exception e) {			
+			GarajeException ex= new GarajeException(e);	
 			throw ex;
 			
 		}

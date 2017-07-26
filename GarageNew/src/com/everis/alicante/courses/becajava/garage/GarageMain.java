@@ -48,14 +48,16 @@ public class GarageMain {
 		System.out.println("6:Listar Vehiculos");
 		System.out.println("7:Listar por Fecha de Reserva");
 		
-		Scanner in = new Scanner(System.in);
-		Integer opcion = in.nextInt();
-	    boolean resultado = true;   
-	    Map<Integer,Plaza> mapa=null;
-		
-		System.out.println("Ha elegido la opcion :" + opcion);
-		
 		try {
+		
+			Scanner in = new Scanner(System.in);
+			Integer opcion = in.nextInt();
+		    boolean resultado = true;   
+		    Map<Integer,Plaza> mapa=null;
+			
+			System.out.println("Ha elegido la opcion :" + opcion);
+		
+	
 							
 			switch (opcion) {
 				case 1:	

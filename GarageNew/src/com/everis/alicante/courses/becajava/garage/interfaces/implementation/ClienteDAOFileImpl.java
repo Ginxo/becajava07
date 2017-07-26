@@ -16,46 +16,40 @@ import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 public class ClienteDAOFileImpl implements ClienteDAO {
 
 	@Override
-	public Map<String,Cliente> readClientes() throws GarajeException {
+	public Map<String,Cliente> readClientes() throws IOException {
 			
 		Map<String,Cliente> clientes;
 		
-		try {
 		
-			  clientes= new TreeMap<String,Cliente>();		 
+		clientes= new TreeMap<String,Cliente>();		 
 			
-			 String linea;
+		String linea;
 			 
-			 File file= new File("src/resources/Clientes.txt");
-			 FileReader reader= new FileReader(file);
-			 BufferedReader  buffer= new BufferedReader(reader);
+		File file= new File("src/resources/Clientes.txt");
+		FileReader reader= new FileReader(file);
+		BufferedReader  buffer= new BufferedReader(reader);
 			 		 
-			 while((linea=buffer.readLine())!=null){				  
+		while((linea=buffer.readLine())!=null){				  
 				
-				if(!linea.contains("NIF")||linea.isEmpty()){
+			if(!linea.contains("NIF")||linea.isEmpty()){
 					
-					Cliente clienteTemp= new Cliente();	
+				Cliente clienteTemp= new Cliente();	
 					
-					String[] temp= linea.split(";");
+				String[] temp= linea.split(";");
 					
-					clienteTemp.setNif(temp[0]);
-					clienteTemp.setNombreCompleto(temp[1]);
+				clienteTemp.setNif(temp[0]);
+				clienteTemp.setNombreCompleto(temp[1]);
 					
 											
-					clientes.put(clienteTemp.getNif(),clienteTemp);
+				clientes.put(clienteTemp.getNif(),clienteTemp);
 				
-				}
+			}
 				
-			 }
+		 }
 				 
-			 reader.close();	
-			 
-				
-		} catch (Exception e) {
-			throw new GarajeException(e);
-		}
-			 	  	
-			return  clientes;	
+		 reader.close();				 
+	
+		return  clientes;	
 	}
 
 	@Override

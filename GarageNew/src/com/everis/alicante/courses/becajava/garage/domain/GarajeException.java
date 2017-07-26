@@ -3,33 +3,23 @@ package com.everis.alicante.courses.becajava.garage.domain;
 import java.util.Calendar;
 
 public class GarajeException extends Exception{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6474336936597609781L;
 	
+
+	private static final long serialVersionUID = -8890393005500715068L;
+	
+	public Exception excepcionOrigen;
 	
 	public void gestionaExcepcion() {
 		
 		System.out.println("Ha ocurrido una excepcion ; ");
-		System.out.println("en la clase :" +super.getClass());		
-		System.out.println(" y con esta causa: " + super.getCause());
+		System.out.println("del tipo :" + this.excepcionOrigen.getClass());		
+		System.out.println("y por este motivo: " + this.excepcionOrigen.getLocalizedMessage());
 		
 	}
 	
 
 	public GarajeException(Exception e) {
-		super.initCause(e.getCause());
-	}
-
-
-	public String getMessage() {
-		return super.getMessage();
-	}
-
-
-	public Throwable getCause() {
-		return super.getCause();
+		this.excepcionOrigen=e;
 	}
 
 
@@ -38,13 +28,14 @@ public class GarajeException extends Exception{
 		String tmp="";
 		tmp=tmp.concat(Calendar.getInstance().getTime().toString());
 		tmp=tmp.concat(";");
-		tmp=tmp.concat(this.getClass().getSimpleName());
+		tmp=tmp.concat(this.excepcionOrigen.getClass().getSimpleName());
 		tmp=tmp.concat(";");
-		tmp=tmp.concat(this.getCause().toString());
+		tmp=tmp.concat(this.excepcionOrigen.getLocalizedMessage());
 		
 		return tmp;
 		
 	}
-	
+
+
 
 }
