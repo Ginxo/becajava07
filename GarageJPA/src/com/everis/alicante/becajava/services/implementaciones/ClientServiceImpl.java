@@ -3,9 +3,7 @@ package com.everis.alicante.becajava.services.implementaciones;
 import java.util.List;
 
 import com.everis.alicante.becajava.domain.Client;
-import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.interfaces.ClientDAO;
-import com.everis.alicante.becajava.interfaces.VehicleDAO;
 import com.everis.alicante.becajava.services.ClientService;
 
 public class ClientServiceImpl implements ClientService {
@@ -48,8 +46,13 @@ public class ClientServiceImpl implements ClientService {
 		this.clientDao = clientDao;
 	}
 
-	
+	public ClientServiceImpl(ClientDAO clientDao) {
+		super();
+		this.clientDao = clientDao;
+	}
 
+	
+	
 	
 	
 	

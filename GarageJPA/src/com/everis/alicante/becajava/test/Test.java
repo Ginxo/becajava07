@@ -21,6 +21,7 @@ import com.everis.alicante.becajava.interfaces.BookingDAO;
 import com.everis.alicante.becajava.interfaces.ClientDAO;
 import com.everis.alicante.becajava.interfaces.ParkingPlaceDAO;
 import com.everis.alicante.becajava.interfaces.VehicleDAO;
+import com.everis.alicante.becajava.services.BookingService;
 import com.everis.alicante.becajava.services.implementaciones.BookingServiceImpl;
 
 
@@ -43,9 +44,8 @@ public class Test {
 		BookingDAO daoBooking=new BookingDAOJPAImpl(em);
 		ParkingPlaceDAO daoParking= new ParkingPlacecDAOJPAImpl(em);
 		
-		BookingServiceImpl service=new BookingServiceImpl();
-		service.setBookingDao(daoBooking);
-			
+		BookingService service=new BookingServiceImpl(daoBooking);
+		
 
 		//creamos una reserva entera
 		

@@ -24,7 +24,7 @@ public class ParkingPlacecDAOJPAImpl implements ParkingPlaceDAO{
 	}
 
 	@Override
-	public Parkingplace readById(int id) {		
+	public Parkingplace readById(int id) {	
 		
 		return em.find(Parkingplace.class, id);		
 		
@@ -59,6 +59,14 @@ public class ParkingPlacecDAOJPAImpl implements ParkingPlaceDAO{
 		
 		return query.getResultList();
 		
+	}
+
+	@Override
+	public int findFreeParkingPlace() {
+		
+		Query query=em.createNativeQuery("Select idparkingplace from parkingplace where parkingstate=0 order by idparkingplace asc");
+			
+		return (int) query.getResultList().get(0);
 	}
 	
 
