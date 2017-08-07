@@ -51,6 +51,12 @@ public class ClientServiceImpl implements ClientService {
 		this.clientDao = clientDao;
 	}
 
+	@Override
+	public double getImporteByClient(Client client) {
+	
+		return this.clientDao.findImporteByClient(client);
+	}
+
 	
 	
 	

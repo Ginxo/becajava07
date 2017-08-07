@@ -11,7 +11,10 @@ import java.util.Set;
  */
 @Entity
 @Table(name="parkingplace")
-@NamedQuery(name="Parkingplace.findAll", query="SELECT p FROM Parkingplace p")
+@NamedQueries({
+	 @NamedQuery(name="Parkingplace.findAll", query="SELECT p FROM Parkingplace p"),
+	 @NamedQuery(name="Parkingplace.findFreePlaces", query="SELECT p FROM Parkingplace p where p.parkingstate=0")
+}) 
 public class Parkingplace implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -100,5 +103,13 @@ public class Parkingplace implements Serializable {
 
 		return booking;
 	}
+
+	@Override
+	public String toString() {
+		return "Parkingplace [idparkingplace=" + idparkingplace + ", parkingnumber=" + parkingnumber + ", parkingprize="
+				+ parkingprize + ", parkingsize=" + parkingsize + "]";
+	}
+	
+	
 
 }

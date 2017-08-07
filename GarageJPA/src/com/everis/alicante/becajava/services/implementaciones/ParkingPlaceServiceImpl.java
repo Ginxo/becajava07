@@ -28,6 +28,12 @@ public class ParkingPlaceServiceImpl implements ParkingPlaceService {
 		return parkingPlaceDao.readById(id);
 		
 	}
+
+	@Override
+	public List<Parkingplace> listFreePlaces() {
+		
+		return parkingPlaceDao.findFreeParkingPlaces();
+	}
 	
 	
 	

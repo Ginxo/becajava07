@@ -3,12 +3,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
 
 import com.everis.alicante.becajava.domain.Client;
+import com.everis.alicante.becajava.domain.Parkingplace;
 import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.garage.controller.ControladorGaraje;
 import com.everis.alicante.becajava.garage.controller.ControladorGarajeImpl;
@@ -23,7 +26,7 @@ public class GarageMain {
 		
 		static Date fechaFin=null;
 		
-		public static void main(String[] args) {	
+		public static void main(String[] args){	
 		
 		
 			inicializarComponentes();
@@ -41,12 +44,13 @@ public class GarageMain {
 		
 		System.out.println("Bienvenido a nuestro garaje, seleccione una opcion: ");
 		System.out.println("1:Listar Plazas Garaje Libre ");
-		System.out.println("2:Listar Plazas Garaje Ocupadas ");
-		System.out.println("3:Reservar Plazas");
-		System.out.println("4:Listar Clientes");
-		System.out.println("5:Listar Reservas");
-		System.out.println("6:Listar Vehiculos");
-		System.out.println("7:Listar por Fecha de Reserva");
+		System.out.println("2:Reservar Plazas");
+		System.out.println("3:Listar Clientes");
+		System.out.println("4:Listar Reservas");
+		System.out.println("5:Listar Vehiculos");
+		System.out.println("6:Listar por Fecha de Reserva");
+		System.out.println("7:Factura por Cliente");
+		
 		
 			Scanner in = new Scanner(System.in);
 			Integer opcion = in.nextInt();
@@ -56,35 +60,40 @@ public class GarageMain {
 								
 			switch (opcion) {
 				case 1:	
-					controlador.listarPlazasLibres();			
-					break;
+					List<Parkingplace> lista = controlador.listarPlazasLibres();	
+					for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
+						Parkingplace parkingplace = (Parkingplace) iterator.next();
+						System.out.println(parkingplace);
+					}
+					break;				
 				case 2:			
-					controlador.listarPlazasOcupadas();			
-					break;
-				case 3:			
 					booking();			
 					break;
-				case 4:			
+				case 3:			
 					controlador.listarClientes();		
 					break;
-				case 5:			
+				case 4:			
 					controlador.listarReservas();		
 					break;
-				case 6:			
+				case 5:			
 					controlador.listarVehiculos();		
 					break;
-				case 7:	
+				case 6:	
 					validarFechasEntrada();
 					controlador.listarReservasByFecha(fechaInicio, fechaFin);		
-					break;
+					break;	
+				case 7:					
+					Client client=insertClientName();					
+					controlador.findImporteCliente(client);		
+					break;	
 				default:
 					System.out.println("Error");
 					break;
 				}
 						
-			if(opcion==3&&resultado){
+			if(opcion==2&&resultado){
 				System.out.println("Se ha reservado su plaza");
-			}else if (opcion==3){
+			}else if (opcion==2){
 				System.out.println("No hay plazas disponibles");
 			}
 				
@@ -98,6 +107,18 @@ public class GarageMain {
 		
 	}
 
+	public static Client insertClientName(){
+		
+		Client client= new Client();
+		
+		System.out.println("Inserte el nombr del Cliente");
+		
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);		
+		client.setName(in.nextLine());
+		
+		return client;
+	}
 	
 	public static void booking(){
 		

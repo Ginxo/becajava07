@@ -9,7 +9,7 @@ import com.everis.alicante.becajava.domain.Parkingplace;
 import com.everis.alicante.becajava.interfaces.ParkingPlaceDAO;
 
 
-public class ParkingPlacecDAOJPAImpl implements ParkingPlaceDAO{
+public class ParkingPlaceDAOJPAImpl implements ParkingPlaceDAO{
 
 	EntityManager em;
 	
@@ -47,7 +47,7 @@ public class ParkingPlacecDAOJPAImpl implements ParkingPlaceDAO{
 		em.getTransaction().commit();
 	}
 
-	public ParkingPlacecDAOJPAImpl(EntityManager em) {
+	public ParkingPlaceDAOJPAImpl(EntityManager em) {
 		super();
 		this.em = em;
 	}
@@ -67,6 +67,14 @@ public class ParkingPlacecDAOJPAImpl implements ParkingPlaceDAO{
 		Query query=em.createNativeQuery("Select idparkingplace from parkingplace where parkingstate=0 order by idparkingplace asc");
 			
 		return (int) query.getResultList().get(0);
+	}
+
+	@Override
+	public List<Parkingplace> findFreeParkingPlaces() {
+		
+		Query query = em.createNamedQuery("Parkingplace.findFreePlaces");		
+		
+		return query.getResultList();
 	}
 	
 

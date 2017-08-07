@@ -15,7 +15,7 @@ import com.everis.alicante.becajava.domain.Parkingplace;
 import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.implementaciones.BookingDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.ClientDAOJPAImpl;
-import com.everis.alicante.becajava.implementaciones.ParkingPlacecDAOJPAImpl;
+import com.everis.alicante.becajava.implementaciones.ParkingPlaceDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.VehicleDAOJPAImpl;
 import com.everis.alicante.becajava.interfaces.BookingDAO;
 import com.everis.alicante.becajava.interfaces.ClientDAO;
@@ -42,7 +42,7 @@ public class Test {
 		ClientDAO daoClient=new ClientDAOJPAImpl(em);
 		VehicleDAO daoVehicle= new VehicleDAOJPAImpl(em);
 		BookingDAO daoBooking=new BookingDAOJPAImpl(em);
-		ParkingPlaceDAO daoParking= new ParkingPlacecDAOJPAImpl(em);
+		ParkingPlaceDAO daoParking= new ParkingPlaceDAOJPAImpl(em);
 		
 		BookingService service=new BookingServiceImpl(daoBooking);
 		

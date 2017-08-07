@@ -10,5 +10,7 @@ public interface ParkingPlaceService {
 	List<Parkingplace> list();
 	
 	Parkingplace getFreePlace();
+	
+	List<Parkingplace> listFreePlaces();	
 
 }

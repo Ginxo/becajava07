@@ -3,7 +3,6 @@ package com.everis.alicante.becajava.services;
 import java.util.List;
 
 import com.everis.alicante.becajava.domain.Client;
-import com.everis.alicante.becajava.domain.Vehicle;
 
 public interface ClientService {
 	
@@ -16,6 +15,7 @@ public interface ClientService {
 
 	void createClient(Client client);
 	
+	double getImporteByClient(Client client);
 	
 	
 	

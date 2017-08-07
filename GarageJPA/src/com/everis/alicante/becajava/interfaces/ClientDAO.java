@@ -16,5 +16,6 @@ public interface ClientDAO {
 	
 	List<Client> findAll();
 		
+	double findImporteByClient(Client client);
 
 }

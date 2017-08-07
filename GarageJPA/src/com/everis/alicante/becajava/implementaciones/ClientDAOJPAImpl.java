@@ -62,6 +62,18 @@ public class ClientDAOJPAImpl implements ClientDAO{
 		return query.getResultList();
 		
 	}
-	
+
+	@Override
+	public double findImporteByClient(Client client) {
+		
+		Query query=em.createNativeQuery("select sum(p.PARKINGPRIZE) from client c "+
+										 "	inner join booking b on b.idclient=c.idclient"+
+										 "	inner join parkingplace p on b.IDPARKINGPLACE=p.IDPARKINGPLACE"+
+										 "	where name= ? ");
+		
+		query.setParameter(1, client.getName());
+		
+		return (double) query.getSingleResult();
+	}
 
 }

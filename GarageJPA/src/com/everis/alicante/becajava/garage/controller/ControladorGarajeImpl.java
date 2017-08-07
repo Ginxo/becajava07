@@ -2,6 +2,7 @@ package com.everis.alicante.becajava.garage.controller;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import com.everis.alicante.becajava.domain.Parkingplace;
 import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.implementaciones.BookingDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.ClientDAOJPAImpl;
-import com.everis.alicante.becajava.implementaciones.ParkingPlacecDAOJPAImpl;
+import com.everis.alicante.becajava.implementaciones.ParkingPlaceDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.VehicleDAOJPAImpl;
 import com.everis.alicante.becajava.interfaces.BookingDAO;
 import com.everis.alicante.becajava.interfaces.ClientDAO;
@@ -48,16 +49,12 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 	
 	
 	@Override
-	public Map<Integer, Parkingplace> listarPlazasLibres() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Parkingplace> listarPlazasLibres() {
+		
+		return parkingService.listFreePlaces();
 	}
 
-	@Override
-	public void listarPlazasOcupadas() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public boolean reservarPlaza(Client client,Vehicle vehicle) {
@@ -76,7 +73,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		Parkingplace place=this.parkingService.getFreePlace();
 		place.setBookings(bookings);
 		booking.setParkingplace(place);
-		
+		place.setParkingstate((byte) 1);
 		this.bookingService.create(booking);
 		
 		return true;
@@ -114,7 +111,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 		this.em=Persistence.createEntityManagerFactory("GARAGE_JPA").createEntityManager();
 		this.clientDao= new ClientDAOJPAImpl(em);
-		this.parkinPlaceDao=new ParkingPlacecDAOJPAImpl(em);
+		this.parkinPlaceDao=new ParkingPlaceDAOJPAImpl(em);
 		this.vehicleDao=new VehicleDAOJPAImpl(em);
 		this.bookingDao= new BookingDAOJPAImpl(em);
 		this.serviceClient=new ClientServiceImpl(clientDao);
@@ -122,6 +119,16 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		this.vehicleService= new VehicleServiceImpl(vehicleDao);
 		this.parkingService= new ParkingPlaceServiceImpl(parkinPlaceDao);
 		
+	}
+
+
+
+	@Override
+	public double findImporteCliente(Client client) {
+		
+		System.out.println("El cliente : " + client.getName()+" debe : "+serviceClient.getImporteByClient(client) +"EUR");
+		
+		return serviceClient.getImporteByClient(client);
 	}
 
 

@@ -17,6 +17,8 @@ public interface ParkingPlaceDAO {
 	List<Parkingplace> findAll();
 	
 	int findFreeParkingPlace();
+	
+	List<Parkingplace> findFreeParkingPlaces();
 		
 
 }
