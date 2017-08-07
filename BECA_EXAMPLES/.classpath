@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/garage"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/GarageNew"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GarageFinal"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
