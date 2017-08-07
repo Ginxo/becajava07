@@ -25,18 +25,18 @@ public class Booking implements Serializable {
 	private Date bookingdate;
 
 	//bi-directional many-to-one association to Client
-	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="idClient", nullable=false)
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="IDCLIENT", nullable=false)
 	private Client client;
 
 	//bi-directional many-to-one association to Parkingplace
-	@ManyToOne
-	@JoinColumn(name="idParkingPlace", nullable=false)
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="IDPARKINGPLACE", nullable=false)
 	private Parkingplace parkingplace;
 
 	//bi-directional many-to-one association to Vehicle
-	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="idVehicle", nullable=false)
+	@ManyToOne
+	@JoinColumn(name="IDVEHICLE", nullable=false)
 	private Vehicle vehicle;
 
 	public Booking() {

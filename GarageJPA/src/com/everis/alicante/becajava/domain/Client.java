@@ -33,7 +33,7 @@ public class Client implements Serializable {
 	private String telephone;
 
 	//bi-directional many-to-one association to Booking
-	@OneToMany(mappedBy="client", cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="client", cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
 	private Set<Booking> bookings;
 
 	//bi-directional many-to-one association to Vehicle
