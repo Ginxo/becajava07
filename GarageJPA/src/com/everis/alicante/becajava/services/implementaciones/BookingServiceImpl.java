@@ -3,18 +3,23 @@ package com.everis.alicante.becajava.services.implementaciones;
 import java.util.List;
 
 import com.everis.alicante.becajava.domain.Booking;
+import com.everis.alicante.becajava.domain.Client;
+import com.everis.alicante.becajava.domain.Parkingplace;
+import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.interfaces.BookingDAO;
+import com.everis.alicante.becajava.interfaces.ClientDAO;
+import com.everis.alicante.becajava.interfaces.ParkingPlaceDAO;
+import com.everis.alicante.becajava.interfaces.VehicleDAO;
 import com.everis.alicante.becajava.services.BookingService;
 
 
 public class BookingServiceImpl implements BookingService {
 
 	
-	BookingDAO bookingDao;		
-
+	BookingDAO bookingDao;	
 	
 	@Override
-	public void create(Booking booking) {		
+	public void create(Booking booking) {	
 		
 		bookingDao.create(booking);		
 
@@ -41,7 +46,10 @@ public class BookingServiceImpl implements BookingService {
 	public void setBookingDao(BookingDAO bookingDao) {
 		this.bookingDao = bookingDao;
 	}
+	
+	
 
+	
 
 	
 

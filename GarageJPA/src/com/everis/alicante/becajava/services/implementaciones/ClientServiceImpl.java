@@ -11,14 +11,12 @@ import com.everis.alicante.becajava.services.ClientService;
 public class ClientServiceImpl implements ClientService {
 	
 	private ClientDAO clientDao;
-	
-	private VehicleDAO vehicleDao;
-
+		
 	@Override
-	public void createClient(Client client , Vehicle vehicle) {
+	public void createClient(Client client) {
 		
 		clientDao.create(client);		
-		vehicleDao.create(vehicle);
+		
 	}
 
 	@Override
@@ -50,13 +48,7 @@ public class ClientServiceImpl implements ClientService {
 		this.clientDao = clientDao;
 	}
 
-	public VehicleDAO getVehicleDao() {
-		return vehicleDao;
-	}
-
-	public void setVehicleDao(VehicleDAO vehicleDao) {
-		this.vehicleDao = vehicleDao;
-	}
+	
 
 	
 	

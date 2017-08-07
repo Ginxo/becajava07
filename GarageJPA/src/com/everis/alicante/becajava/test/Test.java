@@ -96,7 +96,7 @@ public class Test {
 	
 		static EntityManager createEntityMananger(){
 		
-		return Persistence.createEntityManagerFactory("JPA_Test").createEntityManager();
+		return Persistence.createEntityManagerFactory("GARAGE_JPA").createEntityManager();
 		
 	}
 

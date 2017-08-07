@@ -14,7 +14,7 @@ public interface ClientService {
 	
 	Client findCliente(Client client);
 
-	void createClient(Client client, Vehicle vehicle);
+	void createClient(Client client);
 	
 	
 	

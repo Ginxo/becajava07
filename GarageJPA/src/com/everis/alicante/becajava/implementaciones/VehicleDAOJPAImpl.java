@@ -15,11 +15,13 @@ public class VehicleDAOJPAImpl implements VehicleDAO{
 	
 	
 	@Override
-	public void create(Vehicle vehicle) {
+	public int create(Vehicle vehicle) {
 		
 		em.getTransaction().begin();
 		em.persist(vehicle);			
 		em.getTransaction().commit();
+		
+		return 1;
 		
 	}
 

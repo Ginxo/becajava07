@@ -15,11 +15,13 @@ public class ClientDAOJPAImpl implements ClientDAO{
 	
 	
 	@Override
-	public void create(Client client) {
+	public int create(Client client) {
 		
 		em.getTransaction().begin();
 		em.persist(client);			
 		em.getTransaction().commit();
+		
+		return client.getIdclient();
 		
 	}
 

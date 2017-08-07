@@ -6,7 +6,7 @@ import com.everis.alicante.becajava.domain.Client;
 
 public interface ClientDAO {
 	
-	void create(Client client);
+	int create(Client client);
 	
 	Client readById(int id);
 	

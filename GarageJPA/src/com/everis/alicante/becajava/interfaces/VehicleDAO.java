@@ -7,7 +7,7 @@ import com.everis.alicante.becajava.domain.Vehicle;
 
 public interface VehicleDAO {
 	
-	void create(Vehicle vehicle);
+	int create(Vehicle vehicle);
 	
 	Vehicle readById(int id);
 	
