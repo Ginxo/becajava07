@@ -1,16 +1,14 @@
 package com.everis.alicante.becajava.test;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-import com.everis.alicante.becajava.domain.Booking;
+import org.apache.log4j.Logger;
+
 import com.everis.alicante.becajava.domain.Client;
-import com.everis.alicante.becajava.domain.Parkingplace;
 import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.implementaciones.BookingDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.ClientDAOJPAImpl;
@@ -26,9 +24,15 @@ import com.everis.alicante.becajava.services.implementaciones.BookingServiceImpl
 
 public class Test {
 	
+	static Logger logger= Logger.getLogger(Test.class);
 	
 	public static void main(String[] args){
+		
 	
+	
+		logger.info(" INIT TEST ************************************************** ");
+		
+		
 		EntityManager em=createEntityMananger();
 				
 		ClientDAO daoClient=new ClientDAOJPAImpl(em);
@@ -38,9 +42,7 @@ public class Test {
 		
 		BookingServiceImpl service=new BookingServiceImpl();
 		service.setBookingDao(daoBooking);
-		service.setClientDao(daoClient);
-		service.setVehicleDao(daoVehicle);
-		
+			
 
 		//creamos una reserva entera
 		
@@ -69,14 +71,25 @@ public class Test {
 //		Parkingplace place= daoParking.readById(1);
 //		
 //		Booking booking= new Booking();
-//		booking.setBookingDate(Calendar.getInstance().getTime());
+//		booking.setBookingdate(Calendar.getInstance().getTime());
 //		booking.setParkingplace(place);
-
+//		
+//		Set bookings=new HashSet<>();
+//		bookings.add(booking);
+//		
+//		vehicle.setBookings(bookings);
+//		client.setBookings(bookings);
+//		place.setBookings(bookings);
+//		
+//		booking.setVehicle(vehicle);
+//		booking.setClient(client);
+//		booking.setParkingplace(place);	
+//		
+//		
+//		service.create(booking);
 		
-		//service.create(booking,client,vehicle);
 		
-		
-	
+		logger.info(" END TEST *************************************************** ");
 		
 		
 	}

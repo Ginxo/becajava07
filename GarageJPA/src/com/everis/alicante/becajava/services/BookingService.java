@@ -3,8 +3,6 @@ package com.everis.alicante.becajava.services;
 import java.util.List;
 
 import com.everis.alicante.becajava.domain.Booking;
-import com.everis.alicante.becajava.domain.Client;
-import com.everis.alicante.becajava.domain.Vehicle;
 
 public interface BookingService {
 	
@@ -13,6 +11,6 @@ public interface BookingService {
 	
 	Booking findBooking(String field);
 
-	void create(Booking booking, Client client , Vehicle vehicle);
+	void create(Booking booking);
 
 }
