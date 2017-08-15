@@ -88,9 +88,9 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 	}
 
 	@Override
-	public void listarReservas() {
+	public List<Booking> listarReservas() {
 		
-		System.out.println(this.bookingService.list());
+		return this.bookingService.list();
 		
 	}
 

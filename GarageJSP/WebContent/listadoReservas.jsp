@@ -13,13 +13,13 @@
 </head>
 <body>
 	
-	LISTA DE PLAZAS </br>
+	LISTA DE RESERVAS </br>
 	 
-	<%	List<Parkingplace> plazas = (List) request.getAttribute("plazas");
+	<%	List<Booking> reservas = (List) request.getAttribute("reservas");
 	
 	 	out.println("<br/>");
-		for(Parkingplace plaza: plazas){
-	    	out.println(plaza + "<br/>");
+		for(Booking reserva: reservas){
+	    	out.println(reserva + "<br/>");
 	    }
     
      %>
@@ -28,9 +28,9 @@
 	  <% out.println("<br/>");
 	 	
 		out.print("<tr>");
-		for(Parkingplace plaza: plazas){
+		for(Booking reserva: reservas){
 		
-	    	out.println("<td>"+plaza  + "</td>");
+	    	out.println("<td>"+reserva  + "</td>");
 	    }
 		out.print("</tr>");
 		
@@ -44,9 +44,9 @@
 	
 	<div>
 	
-	<c:forEach items="${plazas}" var="plaza">
+	<c:forEach items="${reservas}" var="plaza">
 	
-		<c:out value="${plaza}"></c:out>
+		<c:out value="${reservas}"></c:out>
 		</br>
 	
 	</c:forEach>

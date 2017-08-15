@@ -82,4 +82,12 @@ public class Booking implements Serializable {
 		this.vehicle = vehicle;
 	}
 
+	@Override
+	public String toString() {
+		return "Reserva a fecha " + bookingdate + " , del cliente=" + client.getName() + " , para la plaza " + parkingplace.getParkingnumber()
+				+ ", y el vehiculo con matricula " + vehicle.getVehicleplate() + "]";
+	}
+	
+	
+
 }
