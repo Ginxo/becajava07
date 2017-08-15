@@ -106,8 +106,7 @@ public class Parkingplace implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Parkingplace [idparkingplace=" + idparkingplace + ", parkingnumber=" + parkingnumber + ", parkingprize="
-				+ parkingprize + ", parkingsize=" + parkingsize + "]";
+		return "Plaza nº" + parkingnumber + ", precio = "+ parkingprize + " , tamaño = " +parkingsize;
 	}
 	
 	
