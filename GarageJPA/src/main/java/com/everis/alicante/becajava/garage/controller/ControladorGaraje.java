@@ -11,10 +11,10 @@ import com.everis.alicante.becajava.domain.Vehicle;
 public interface ControladorGaraje {
 	
 	List<Parkingplace> listarPlazasLibres();	
-	void listarClientes();
+	List<Client> listarClientes();
 	List<Booking> listarReservas();
-	void listarVehiculos();
-	void listarReservasByFecha(Date fechaInicio,Date fechaFin);
+	List<Vehicle> listarVehiculos();
+	List<Booking> listarReservasByFecha(Date fechaInicio,Date fechaFin);
 	boolean reservarPlaza(Client client, Vehicle vehicle);
 	double findImporteCliente(Client client);
 

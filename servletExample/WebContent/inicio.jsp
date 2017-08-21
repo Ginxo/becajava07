@@ -11,9 +11,22 @@
 	Inicio , vamos a redireccionar a la pagina fin.jsp:
 	
 	<form method="post" action="/servletExample/dispatcher">
+	
+	
+	<%
+	 	if(request.getParameter("tipoUsuario").equals("ADMIN")){
+	 	
+	 		%>
+	 		<input type="submit" value="Redireccionar" />
+	 		<% }
+	 		else{ %>	
+	 		
+	 		<input type="submit" value="Cancelar" />
+	 		
+	 		 <% 		}		 %>	 		
 
-
-	<input type="submit" value="Redireccionar" />
+	
+	
 
 </form>
 	
