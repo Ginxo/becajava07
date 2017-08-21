@@ -1,8 +1,0 @@
-com\everis\alicante\courses\becajava\garage\domain\vehicle\VehiclePiece.class
-com\everis\alicante\courses\becajava\garage\domain\vehicle\Bycicle.class
-com\everis\alicante\courses\becajava\garage\dao\impl\ClientDAOImpl.class
-com\everis\alicante\courses\becajava\garage\domain\vehicle\enumerator\WheelKindEnum.class
-com\everis\alicante\courses\becajava\garage\dao\ClientDAO.class
-com\everis\alicante\courses\becajava\garage\domain\vehicle\Wheel.class
-com\everis\alicante\courses\becajava\garage\domain\client\Client.class
-com\everis\alicante\courses\becajava\garage\domain\vehicle\Vehicle.class
