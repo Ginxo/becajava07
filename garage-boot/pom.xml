@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>garage-boot</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Garage project with spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -40,6 +40,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		 <dependency>
+		   <groupId>com.everis.alicante.becajava</groupId>
+		   <artifactId>GarageJPA</artifactId>
+	       <version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+	    
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>taglibs</groupId>
+		    <artifactId>standard</artifactId>
+		    <version>1.1.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
