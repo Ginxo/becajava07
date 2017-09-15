@@ -1,42 +1,99 @@
 package com.everis.alicante.courses.becajava.examples;
 
-import com.everis.alicante.courses.becajava.garage.domain.Garage;
-import com.everis.alicante.courses.becajava.garage.domain.client.Client;
+
 
 public class Test {
 
+		
+	public Client cliente;
+	
 	public static void main(String[] args) {
 		
 		
-		Garage garaje= new Garage();
+		int entero= 3;
 
-//		System.out.println(garaje.getCarParkingPlacesMaxNumber());
+		String cadena1="hola";
+		String cadena2="hola";
 		
-		Client cliente1=new Client("48678876","Jose","Jimenez","13021983");
-		Client cliente2=new Client("456456456","Pepe","Perez","13021983");
-		System.out.println(cliente2);
-		Client cliente3=new Client("456456456","Pepe","Perez","13021983");
-		System.out.println(cliente3);
+		String enteroString=String.valueOf(entero);
 		
-//		System.out.println(cliente.getDni());
-		
-//		System.out.println(cliente1.toString());
-		
-		System.out.println(cliente2.equals(cliente3));
-		
-		
-		Coche coche= new Coche();
+		String cadena3= new String("hola");
+		String cadena4= new String("hola");
 				
-		coche.lavar();
+		Test test2 = null;
+		Test test= new Test();
+	
+		Client[] arrayCliente= new Client[20];
 		
-		coche.getPrecio();
+		Client cliente= new Client();
+		
+		arrayCliente[0]=cliente;
+		arrayCliente[5]=cliente;
+		arrayCliente[10]=cliente;
+		
+			
+		Object[] arrayObject= new Object[20];
+		
+		arrayObject[0]=arrayCliente;
+				
+		Client cliente1=new Client();
+		cliente1.setName("JOSE JUAN");
+		cliente1.setNif("46545467T");
+		
+		Client cliente2=new Client();
+		cliente2.setName("JOSE JUAN");
+		
+		if (cadena1.equals(cadena2)) {
+			System.out.println("son iguales");
+		}
+		else {
+			System.out.println("no son iguales");
+		}
+		
+		System.out.println(cliente1.hablar());
+		
+		if (cliente1 instanceof Persona) {
+		
+			System.out.println(true);
+			
+		}
+		
+		
+		Persona p=new Persona();
+		
+		if (p instanceof Client) {
+			
+			System.out.println(true);
+			
+		}else {
+			System.out.println(false);
+		}
+		
+		
+		
+		Persona persona= new Persona();
+		persona.getVehiculo();
 		
 		Vehiculo vehiculo= new Vehiculo();
+		persona.setVehiculo(vehiculo);
 		
-		((Coche)(vehiculo)).getPrecio();
+		Client cliente5= new Client();
 		
-		((Aparcable)(vehiculo)).aparcar();
+		Persona persona5=cliente5;
+		
+		Client cliente6=(Client) persona5;
+		
+		Vehiculo vehiculo1= new Coche();		
+		
+		
 		
 	}
+	
+	
+		
+		
+	
+		
+		
 
 }

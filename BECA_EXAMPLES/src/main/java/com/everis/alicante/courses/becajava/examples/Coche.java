@@ -34,6 +34,17 @@ public class Coche extends Vehiculo implements Aparcable {
 		this.precio = precio;
 	}
 
+	public Coche() {
+		super();
+	}
+
+	public Coche(double precio, String marca) {
+		super();
+		this.precio = precio;
+		this.marca = marca;
+	}
+
+	
 	
 	
 }

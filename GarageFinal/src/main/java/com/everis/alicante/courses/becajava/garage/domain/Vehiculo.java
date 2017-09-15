@@ -6,6 +6,8 @@ public class Vehiculo {
 
 	private String tipoVehiculo;
 	
+
+	
 	public String getMatricula() {
 		return matricula;
 	}

@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 
@@ -19,13 +20,14 @@ public class CollectionExamples {
 
 	public static void main(String[] args) {
 	
+				
 		
 		//LIST
 		
 		List arraylist= new ArrayList<>();
 		List linkedlist= new LinkedList<>();
 		List vector= new Vector<>();
-		
+			
 		for (int i = 0; i < 10; i++) {
 			
 			Example ex= new Example();
@@ -75,7 +77,7 @@ public class CollectionExamples {
 
         Map mapa1= new HashMap<>();
         
-        Map mapa2= new TreeMap<>();
+        Map<String,Plaza> mapa2= new TreeMap<String,Plaza>();
         
         mapa1.put("48546454T", new Plaza());
         mapa1.put("58523454T", new Plaza());
@@ -86,6 +88,11 @@ public class CollectionExamples {
         mapa2.put("48546454T", new Plaza());
         mapa2.put("58523454T", new Plaza());
         mapa2.put("48523454T", new Plaza());
+        
+        Set claves=mapa2.keySet();
+        Collection col= mapa2.values();
+        
+   
         
         for (Iterator iterator = names.iterator(); iterator.hasNext();) {
 			

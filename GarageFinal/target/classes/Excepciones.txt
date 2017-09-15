@@ -1,0 +1,6 @@
+FECHA;CLASS;CAUSE
+Tue Jul 25 18:00:31 CEST 2017;GarajeException;java.io.FileNotFoundException: src\resources\Clientes.txt (El sistema no puede encontrar el archivo especificado)
+Tue Jul 25 18:08:43 CEST 2017;GarajeException;java.io.FileNotFoundException: src\resources\Clientes.txt (El sistema no puede encontrar el archivo especificado)
+Wed Jul 26 12:24:05 CEST 2017;FileNotFoundException;src\resources\Clientes.txt (El sistema no puede encontrar el archivo especificado)
+Wed Jul 26 18:56:30 CEST 2017;FileNotFoundException;src\main\resources\Clientes.txt (El sistema no puede encontrar el archivo especificado)
+Wed Jul 26 19:38:48 CEST 2017;FileNotFoundException;src\main\resources\Clientes.txt (El sistema no puede encontrar el archivo especificado)

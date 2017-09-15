@@ -63,6 +63,41 @@ public class Cliente {
 		
 		return str;
 	}
+
+	public Cliente() {
+		super();
+	}
+
+	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (nif == null) {
+			if (other.nif != null)
+				return false;
+		} else if (!nif.equals(other.nif))
+			return false;
+		if (nombreCompleto == null) {
+			if (other.nombreCompleto != null)
+				return false;
+		} else if (!nombreCompleto.equals(other.nombreCompleto))
+			return false;
+		if (vehiculo == null) {
+			if (other.vehiculo != null)
+				return false;
+		} else if (!vehiculo.equals(other.vehiculo))
+			return false;
+		return true;
+	}
+
+
 	
 	
 
