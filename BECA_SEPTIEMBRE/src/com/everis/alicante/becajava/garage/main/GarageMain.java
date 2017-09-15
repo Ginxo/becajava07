@@ -1,4 +1,5 @@
 package com.everis.alicante.becajava.garage.main;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import com.everis.alicante.becajava.garage.domain.Plaza;
 import com.everis.alicante.becajava.garage.domain.PlazaCoche;
 import com.everis.alicante.becajava.garage.domain.PlazaMoto;
 import com.everis.alicante.becajava.garage.domain.Vehiculo;
+import com.everis.alicante.becajava.garage.utilities.Lector;
 
 
 
@@ -19,44 +21,19 @@ public class GarageMain {
 	
 	public static GarageController controller;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 			
 		inicializarComponentes();
 		iniciarAplicacion();
 
 	}
 		
-	private static void inicializarComponentes() {
+	private static void inicializarComponentes() throws IOException {
 		
 		garaje= new Garaje();
-		controller=new GarageController();
-		
-		List plazas= new ArrayList<>();
-		
-		for (int i = 0; i < 15; i++) {
-			
-			PlazaCoche plazaTmp=new PlazaCoche();
-			plazaTmp.setNumeroPlaza(i+1);
-			plazaTmp.setPrecio(100);
-			plazaTmp.setMetrosCuadrados(4);
-			
-			plazas.add(plazaTmp);
-			
-		}
-		
-		for (int i = 15; i < 20; i++) {
-			
-			PlazaMoto plazaTmp=new PlazaMoto();
-			plazaTmp.setNumeroPlaza(i+1);
-			plazaTmp.setPrecio(75);
-			plazaTmp.setMetrosCuadrados(4);
-			
-			plazas.add(plazaTmp);
-			
-		}
-		
-		garaje.setPlazas(plazas);
-		
+		controller=new GarageController();		
+		Lector lector=new Lector();			
+		garaje.setPlazas(lector.readPlazas());
 		
 	}
 
