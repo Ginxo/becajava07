@@ -13,17 +13,17 @@
 	<form method="post" action="/servletExample/dispatcher">
 	
 	
-	<%
-	 	if(request.getParameter("tipoUsuario").equals("ADMIN")){
+<%-- 	<% --%>
+<!-- 	if(request.getParameter("tipoUsuario").equals("ADMIN")){ -->
 	 	
-	 		%>
+<%-- 	 		%> --%>
 	 		<input type="submit" value="Redireccionar" />
-	 		<% }
-	 		else{ %>	
+<%-- 	 		<% } --%>
+<%-- 	 		else{ %>	 --%>
 	 		
-	 		<input type="submit" value="Cancelar" />
+<!-- 	 		<input type="submit" value="Cancelar" /> -->
 	 		
-	 		 <% 		}		 %>	 		
+<%-- 	 		 <% 		}		 %>	 		 --%>
 
 	
 	

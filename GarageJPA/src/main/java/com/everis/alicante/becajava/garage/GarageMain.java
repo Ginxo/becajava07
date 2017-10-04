@@ -122,7 +122,7 @@ public class GarageMain {
 	
 	public static void booking(){
 		
-		System.out.println("Inserte el nombr del Cliente");
+		System.out.println("Inserte el nombre del Cliente");
 		
 		Client client= new Client();			
 		

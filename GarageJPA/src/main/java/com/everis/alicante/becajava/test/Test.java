@@ -12,16 +12,20 @@ import org.apache.log4j.Logger;
 import com.everis.alicante.becajava.domain.Booking;
 import com.everis.alicante.becajava.domain.Client;
 import com.everis.alicante.becajava.domain.Parkingplace;
+import com.everis.alicante.becajava.domain.User;
 import com.everis.alicante.becajava.domain.Vehicle;
 import com.everis.alicante.becajava.implementaciones.BookingDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.ClientDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.ParkingPlaceDAOJPAImpl;
+import com.everis.alicante.becajava.implementaciones.UserDAOJPAImpl;
 import com.everis.alicante.becajava.implementaciones.VehicleDAOJPAImpl;
 import com.everis.alicante.becajava.interfaces.BookingDAO;
 import com.everis.alicante.becajava.interfaces.ClientDAO;
 import com.everis.alicante.becajava.interfaces.ParkingPlaceDAO;
+import com.everis.alicante.becajava.interfaces.UserDAO;
 import com.everis.alicante.becajava.interfaces.VehicleDAO;
 import com.everis.alicante.becajava.services.BookingService;
+
 import com.everis.alicante.becajava.services.implementaciones.BookingServiceImpl;
 
 
@@ -43,6 +47,15 @@ public class Test {
 		VehicleDAO daoVehicle= new VehicleDAOJPAImpl(em);
 		BookingDAO daoBooking=new BookingDAOJPAImpl(em);
 		ParkingPlaceDAO daoParking= new ParkingPlaceDAOJPAImpl(em);
+		UserDAO daoUser= new UserDAOJPAImpl();
+		
+		System.out.println(daoUser.findUserById(1));
+		
+		User user= new User();
+		user.setName("JOSE _TEST");
+		user.setSurname("SURNAME TEST");
+		
+		daoUser.insertUser(user);
 		
 		BookingService service=new BookingServiceImpl(daoBooking);
 		

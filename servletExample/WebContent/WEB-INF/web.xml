@@ -33,6 +33,36 @@
 		<servlet-class>com.everis.alicante.becajava.servlets.DispatcherServlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>contacto</servlet-name>
+		<servlet-class>com.everis.alicante.becajava.servlets.ContactoServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>chat</servlet-name>
+		<servlet-class>com.everis.alicante.becajava.servlets.ChatServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>calculadora</servlet-name>
+		<servlet-class>com.everis.alicante.becajava.servlets.CalculadoraServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>calculadora</servlet-name>
+		<url-pattern>/calculadora</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>chat</servlet-name>
+		<url-pattern>/chat</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>contacto</servlet-name>
+		<url-pattern>/Contacto</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/dispatcher</url-pattern>
